@@ -92,6 +92,11 @@ function playnow()
 	document.forms[0].submit();
 }
 
+function getTZ()
+{
+	console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
+}
+
 
 </script>
 </head>
@@ -576,7 +581,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
  		
 		<tr>
 			<td colspan="3" style="text-align:right;" class="homediv choosebg pad17" >
-			<input class="homediv choosebg blacktext" type="button" name="btnSubmit" value="Show Schedule" onClick="javascript:check()"></td>
+			<!-- <input class="homediv choosebg blacktext" type="button" name="btnSubmit" value="Show Schedule" onClick="javascript:check()"></td> -->
+			<input class="homediv choosebg blacktext" type="button" name="btnSubmit" value="Show Schedule" onClick="javascript:getTZ()"></td>
 		</tr>
 		<tr>
 			<td colspan="3" class="homediv choosebg pad17" style="text-align: center;" >
@@ -591,7 +597,7 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 
 <tr>
 	<td  class="homediv choosebg pad17" >
-	In order to listen to a particular programme at a time of your convenience, click on the check-box to the <strong>LEFT</strong> of the programme in the table below and click on the "Listen" button at the top of the table. <br><br>To download a programme to your hard-disk, choose the download link &nbsp;<img src="download.png" >&nbsp; on the <strong>RIGHT</strong> of the programme in the table below.
+	In order to listen to a particular programme at a time of your convenience, click on the check-box to the <strong>LEFT</strong> of the programme in the table below and click on the "Listen" button at the top of the table. <br><br>To download a programme to your hard-disk, choose the download link &nbsp;<img src="img/dl.png" >&nbsp; on the <strong>RIGHT</strong> of the programme in the table below.
 
 </td>
 </tr>
@@ -662,8 +668,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans - Shivam				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="6846,8482,16629,16630,8480,16631">
 					<a href="javascript:dnload(0)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -674,8 +680,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="6846,8482,16629,16630,8480,16631">
 					<a href="javascript:dnload(1)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -699,8 +705,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Bhajans by Pandurang Dixit and family				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="16635,7032,8070,13429,8455,13432,13434,13436,13438,7024,8066,8073">
 					<a href="javascript:dnload(2)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -711,8 +717,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="16635,7032,8070,13429,8455,13432,13434,13436,13438,7024,8066,8073">
 					<a href="javascript:dnload(3)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -736,8 +742,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Violin concert by students of the Sri Sathya Sai Institute of Higher Learning on 11th August 2004 - first broadcast on 2005-10-21				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="12398">
 					<a href="javascript:dnload(4)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -748,8 +754,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="12398">
 					<a href="javascript:dnload(5)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -773,8 +779,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Readings from the Sikh scripture the Guru Granth Sahib - first broadcast on 2007-04-05				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="12345">
 					<a href="javascript:dnload(6)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -785,8 +791,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="12345">
 					<a href="javascript:dnload(7)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -810,8 +816,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Islamic Music - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21247,21248">
 					<a href="javascript:dnload(8)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -822,8 +828,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21247,21248">
 					<a href="javascript:dnload(9)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -847,8 +853,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Western Music - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21249,21250,21251">
 					<a href="javascript:dnload(10)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -859,8 +865,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21249,21250,21251">
 					<a href="javascript:dnload(11)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -884,8 +890,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Christian Choral Music - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21252,21253,21254,21255">
 					<a href="javascript:dnload(12)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -896,8 +902,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21252,21253,21254,21255">
 					<a href="javascript:dnload(13)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -948,8 +954,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Jewish music - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21256,21257,21258">
 					<a href="javascript:dnload(14)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -960,8 +966,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21256,21257,21258">
 					<a href="javascript:dnload(15)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -985,8 +991,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Readings from the Koran - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21259">
 					<a href="javascript:dnload(16)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -997,8 +1003,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21259">
 					<a href="javascript:dnload(17)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1022,8 +1028,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Buddhist Music - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21260,21261">
 					<a href="javascript:dnload(18)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1034,8 +1040,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21260,21261">
 					<a href="javascript:dnload(19)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1059,8 +1065,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Western Music - first broadcast on 2007-01-17				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="9255,9618,10202">
 					<a href="javascript:dnload(20)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1071,8 +1077,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="9255,9618,10202">
 					<a href="javascript:dnload(21)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1096,8 +1102,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Sikh Kirtan - first broadcast on 2007-03-01				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="15889,11983">
 					<a href="javascript:dnload(22)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1108,8 +1114,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="15889,11983">
 					<a href="javascript:dnload(23)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1133,8 +1139,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Readings from the Bible - Acts - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21262,21263,21264">
 					<a href="javascript:dnload(24)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1145,8 +1151,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21262,21263,21264">
 					<a href="javascript:dnload(25)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1170,8 +1176,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Islamic Music from Iran - first broadcast on 2009-07-19				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21265,21266">
 					<a href="javascript:dnload(26)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1182,8 +1188,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21265,21266">
 					<a href="javascript:dnload(27)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1207,8 +1213,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Omkaram Suprabhatam and Gayatri Mantra chant by Bhagawan - first broadcast on 2011-07-22				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="25794">
 					<a href="javascript:dnload(28)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1219,8 +1225,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="25794">
 					<a href="javascript:dnload(29)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1244,8 +1250,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Moments of Oneness - Sanathana Dharma - Devotional Music, Chanting and Readings from the Scriptures - first broadcast on 2007-03-03				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="157">
 					<a href="javascript:dnload(30)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1256,8 +1262,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="157">
 					<a href="javascript:dnload(31)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1281,8 +1287,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental songs				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="17307,12506">
 					<a href="javascript:dnload(32)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1293,8 +1299,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="17307,12506">
 					<a href="javascript:dnload(33)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1318,8 +1324,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Chanting of Stotrams by the students of Sri Sathya Sai Institute of Higher Learning				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="5410">
 					<a href="javascript:dnload(34)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1330,8 +1336,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="5410">
 					<a href="javascript:dnload(35)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1355,8 +1361,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Divine Discourse on 6 November 1993 addressing the students at Prasanthi Nilayam - first broadcast on 2013-01-20				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="32408,32409,32410">
 					<a href="javascript:dnload(36)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1367,8 +1373,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="32408,32409,32410">
 					<a href="javascript:dnload(37)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1392,8 +1398,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="14613,14623,6196,14616,14618,16750,14622,14615">
 					<a href="javascript:dnload(38)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1404,8 +1410,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="14613,14623,6196,14616,14618,16750,14622,14615">
 					<a href="javascript:dnload(39)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1454,8 +1460,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Sai Gayatri				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="25600">
 					<a href="javascript:dnload(40)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1466,8 +1472,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="25600">
 					<a href="javascript:dnload(41)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1491,8 +1497,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Veda Jignasa - 104 - first aired live on Thursday 24 March 2022&nbsp; <div style='color: #d74607; display: inline-block'> - <strong>NEW!</strong></div>				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="51130">
 					<a href="javascript:dnload(42)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1503,8 +1509,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="51130">
 					<a href="javascript:dnload(43)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1528,8 +1534,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="17183,16591,6732,16922,10934">
 					<a href="javascript:dnload(44)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1540,8 +1546,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="17183,16591,6732,16922,10934">
 					<a href="javascript:dnload(45)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1565,8 +1571,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Bhajans sung by Bhagawan Sri Sathya Sai Baba				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="6218,5967,7164,6097,7330,7084,6220,7466">
 					<a href="javascript:dnload(46)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1577,8 +1583,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="6218,5967,7164,6097,7330,7084,6220,7466">
 					<a href="javascript:dnload(47)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1602,8 +1608,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Short Bhajan Tutor - Vanamali Radha Ramana - first broadcast on 2015-10-09				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="39777">
 					<a href="javascript:dnload(48)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1614,8 +1620,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="39777">
 					<a href="javascript:dnload(49)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1639,8 +1645,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Prasanthi Mandir Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="6883,6882,16272,9146,9254,8822,20794,6881">
 					<a href="javascript:dnload(50)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1651,8 +1657,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="6883,6882,16272,9146,9254,8822,20794,6881">
 					<a href="javascript:dnload(51)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1676,8 +1682,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Divine Discourse on 19 October 1988 on the occasion of Dasara - first broadcast on 2013-02-23				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="32639,32640,32641">
 					<a href="javascript:dnload(52)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1688,8 +1694,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="32639,32640,32641">
 					<a href="javascript:dnload(53)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1713,8 +1719,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="14617,16750,6194,14615,14618">
 					<a href="javascript:dnload(54)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1725,8 +1731,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="14617,16750,6194,14615,14618">
 					<a href="javascript:dnload(55)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1750,8 +1756,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Songs by youth from Hyderabad presented on 18 February 2012				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="29025,29026,29027,29028,29029,29030,29031">
 					<a href="javascript:dnload(56)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1762,8 +1768,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="29025,29026,29027,29028,29029,29030,29031">
 					<a href="javascript:dnload(57)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1787,8 +1793,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Concert by Kum. Rudra and Kum. Bhadra on 12 September 2016 during the Onam celebrations at Prasanthi Nilayam - first broadcast on 2017-02-18				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="42461,42462,42463,42464,42465,42466,42467">
 					<a href="javascript:dnload(58)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1799,8 +1805,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="42461,42462,42463,42464,42465,42466,42467">
 					<a href="javascript:dnload(59)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1824,8 +1830,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Divine Discourse on 9 March 1986 during the valedictory function of an EHV workshop - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume19/sss19-05.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks - first broadcast on 2013-07-03				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="33551,33552,33553">
 					<a href="javascript:dnload(60)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1836,8 +1842,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="33551,33552,33553">
 					<a href="javascript:dnload(61)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1861,8 +1867,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Bhajans sung by Suresh Wadkar				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="11564,11565,11571,11566,11567">
 					<a href="javascript:dnload(62)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1873,8 +1879,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="11564,11565,11571,11566,11567">
 					<a href="javascript:dnload(63)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -1898,8 +1904,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="6195,14622,14617,14621,14615">
 					<a href="javascript:dnload(64)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1910,8 +1916,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="6195,14622,14617,14621,14615">
 					<a href="javascript:dnload(65)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1960,8 +1966,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Sai Gayatri				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="25600">
 					<a href="javascript:dnload(66)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -1972,8 +1978,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="25600">
 					<a href="javascript:dnload(67)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -1997,8 +2003,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Music program by students of Sri Sathya Sai Mirpuri College of Music Prashanthi Nilayam - first broadcast on 2007-02-25				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="8456,8457,8458,8462">
 					<a href="javascript:dnload(68)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2009,8 +2015,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="8456,8457,8458,8462">
 					<a href="javascript:dnload(69)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -2034,8 +2040,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Vahini Satsang - 208 - Sandeha Nivarini - first broadcast on 2021-10-16				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="49575">
 					<a href="javascript:dnload(70)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2046,8 +2052,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="49575">
 					<a href="javascript:dnload(71)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -2071,8 +2077,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Concert by Ms Samiksha Bhobe Kakodkar on 9 July 2022 during the Ashadi and Gurupoornima celebrations at Prasanthi Nilayam&nbsp; <div style='color: #d74607; display: inline-block'> - <strong>NEW!</strong></div>				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="51131,51132,51133,51134">
 					<a href="javascript:dnload(72)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2083,8 +2089,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="51131,51132,51133,51134">
 					<a href="javascript:dnload(73)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -2108,8 +2114,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans with alap - Sri Sathya Sai Padarpanam				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="21606,21607,21608,21610,22933">
 					<a href="javascript:dnload(74)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2120,8 +2126,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="21606,21607,21608,21610,22933">
 					<a href="javascript:dnload(75)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -2145,8 +2151,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Veda Jignasa - 104 - first aired live on Thursday 24 March 2022&nbsp; <div style='color: #d74607; display: inline-block'> - <strong>NEW!</strong></div>				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="51130">
 					<a href="javascript:dnload(76)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2157,8 +2163,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="51130">
 					<a href="javascript:dnload(77)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -2182,8 +2188,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="17183,16591,6732,16922,10934,15121">
 					<a href="javascript:dnload(78)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2194,8 +2200,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="17183,16591,6732,16922,10934,15121">
 					<a href="javascript:dnload(79)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -2219,8 +2225,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Drama based on the life of Sri Krishna Chaitanya presented by the students of the Brindavan campus of the Sri Sathya Sai Institute of Higher Learning on 12 January 2013 - first broadcast on 2013-01-26				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="32468">
 					<a href="javascript:dnload(80)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2231,8 +2237,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="32468">
 					<a href="javascript:dnload(81)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -2256,8 +2262,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Divine Discourse - 19th April 1998 (at Kodaikanal) - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume31/sss31-13.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks - first broadcast on 2002-07-01				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="7879">
 					<a href="javascript:dnload(82)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2268,8 +2274,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="7879">
 					<a href="javascript:dnload(83)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #FFFFFF;' >
@@ -2293,8 +2299,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Instrumental Bhajans				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="39986,39987,39988,41850,41527,41263">
 					<a href="javascript:dnload(84)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2305,8 +2311,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="39986,39987,39988,41850,41527,41263">
 					<a href="javascript:dnload(85)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 			<tr style='background-color:  #F4F4F4;' >
@@ -2330,8 +2336,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 				Declaration of Truth - A collection of poems composed by Bhagawan Sri Sathya Sai Baba ( translated by Dr.Geeta Reddy and sung by P.Susheela )				<div class="onlymobile"> &nbsp; &nbsp; 					<input type="hidden" name="dfids" value="14074">
 					<a href="javascript:dnload(86)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 				</div><br><br>
 			</td>
 			
@@ -2342,8 +2348,8 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 									<input type="hidden" name="dfids" value="14074">
 					<a href="javascript:dnload(87)" style="text-decoration:none" 
 					onMouseOver="window.status='';return true;">
-					<img src="download.png" alt="Download" border="0" 
-					onMouseOver="this.src='download_on.png'" onMouseOut="this.src='download.png'"></a>
+					<img src="img/dl.png" alt="Download" border="0" 
+					onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'"></a>
 							</td>
 		</tr>
 	</table>
@@ -2353,7 +2359,7 @@ or) <a href="javascript:todayFullSchedule()" >Return to today's full schedule</a
 
 <hr style="width:90%; margin: auto; color:brown;" >                    
 
-<p style="text-align:right;"><a href="#" style="text-decoration:none" ><img src="top.gif" alt="top"  style="text-decoration:none" ></p></a><br>
+<p style="text-align:right;"><a href="#" style="text-decoration:none" ><img src="img/top.gif" alt="top"  style="text-decoration:none" ></p></a><br>
                         </div>
                       
                     
