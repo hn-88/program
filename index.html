@@ -90,23 +90,58 @@
 			var maintable = $('#sch');
 			//maintable.empty();
 			var serialnum = 1;
-			var previousdescr = "";
+			 
 			for (var i = 0; i < things.length; i++) {
 				var d = new Date(things[i][2])
 				if (d > d1 && d < d2) {
-					if (things[i][4] !== previousdescr) {
+					
+                    maintable.append(`<tr >
+					<td align="center" valign="top">
+						<input type="checkbox" name="chosencb">
+						<input type="hidden" name="fids" value="`
+						+things[i][0]+`">
+					</td>
 
-						maintable.append('<tr><td>' + serialnum + '</td><td>' + things[i][0] + '</td><td>' +
-							things[i][1] + '</td><td>' +
-							things[i][2] + '</td><td>' +
-							things[i][3] + '</td><td>' +
-							things[i][4] + '</td><td>' +
-							things[i][5] + '</td><td>' +
-							things[i][6] + '</td><td>' +
-							things[i][7] + '</td></tr>');
-						serialnum = serialnum + 1;
-						previousdescr = things[i][4];
-					}
+					<td align="center" valign="top">
+						`+ serialnum +`
+					</td>
+
+					<td align="center" valign="top">
+						`+things[i][2].substring(11,16)+`
+					</td>
+
+					<td align="center" valign="top">
+						`+ things[i][2].substring(11, 16) +`
+					</td>
+
+					<td>
+						<div class="redbold">`+ things[i][4] +`</div>
+						`+ things[i][5] +`<div class="onlymobile">
+							&nbsp; &nbsp; 					<input type="hidden" name="dfids" value="`+things[i][0]+`">
+							<a href="javascript:dnload(`+ serialnum +`)" style="text-decoration:none"
+							   onMouseOver="window.status='';return true;">
+								<img src="img/dl.png" alt="Download" border="0"
+									 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
+							</a>
+						</div><br><br>
+					</td>
+
+					<td align="center" valign="top">
+						26
+					</td>
+
+					<td align="center" valign="top">
+						<input type="hidden" name="dfids" value="`+ things[i][0] +`">
+						<a href="javascript:dnload(`+ serialnum +`)" style="text-decoration:none"
+						   onMouseOver="window.status='';return true;">
+							<img src="img/dl.png" alt="Download" border="0"
+								 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
+						</a>
+					</td>
+				</tr>
+				`)
+					serialnum = serialnum + 1;
+										
 				}
 
 			}
@@ -716,7 +751,7 @@
 
 		<hr color="brown" size="1" width="90%" align="center">
 
-		<p align="right"><a href="#" style="text-decoration:none"><img src="img/top.gif" alt="top" style="text-decoration:none"></p></a><br>
+		<p align="right"><a href="#" style="text-decoration:none"><img src="img/top.gif" alt="top" style="text-decoration:none"></a></p><br>
 	</div>
 
 
