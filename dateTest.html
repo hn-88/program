@@ -15,7 +15,7 @@
       var previousdescr = ""; 
       var testdate = "08/12/2022 09:59:59";
 
-        if ( (Date( testdate ) > Date("07/12/2022 23:59:59" ) ) && (Date( things[i][2] ) < Date("08/12/2022 23:59:59" ) ) ) {
+        if ( (Date( testdate ) > Date("07/12/2022 23:59:59" ) ) && (Date( testdate ) < Date("08/12/2022 23:59:59" ) ) ) {
 
           maintable.append('<tr><td>' + Date( testdate ).toString() + ' Success<td><tr>') ;
 
@@ -23,6 +23,8 @@
 
         }
         else {
+          maintable.append('<tr><td>' + Date( "07/12/2022 23:59:59" ).toString() + ' and<td><tr>') ;
+          maintable.append('<tr><td>' + Date( "08/12/2022 23:59:59" ).toString() + ' was compared to testdate<td><tr>') ;
           maintable.append('<tr><td>' + Date( testdate ).toString() + ' Fail<td><tr>') ;
         }
 
