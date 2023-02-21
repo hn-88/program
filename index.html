@@ -85,8 +85,8 @@
 
 		function showDateFiltRows(things) {
 			// select is for B, C, D, E, G, H, I, M
-			var d1 = new Date("2022-12-07 23:59:59");
-			var d2 = new Date("2022-12-08 10:59:59");
+			var d1 = new Date("2023-02-11 23:59:59");
+			var d2 = new Date("2023-02-12 10:59:59");
 			var maintable = $('#sch');
 			//maintable.empty();
 			var serialnum = 1;
@@ -107,17 +107,17 @@
 					</td>
 
 					<td align="center" valign="top">
-						`+things[i][2].substring(11,16)+`
+						`+things[i][1].substring(11,16)+`
 					</td>
 
 					<td align="center" valign="top">
-						`+ things[i][2].substring(11, 16) +`
+						`+ things[i][1].substring(11, 16) +`
 					</td>
 
 					<td>
-						<div class="redbold">`+ things[i][4] +`</div>
-						`+ things[i][5] +`<div class="onlymobile">
-							&nbsp; &nbsp; 					<input type="hidden" name="dfids" value="`+things[i][0]+`">
+						<div class="redbold">`+ things[i][2] +`</div>
+						`+ things[i][3] +`<div class="onlymobile">
+							&nbsp; &nbsp; 					<input type="hidden" name="dfids" value="`+things[i][5]+`">
 							<a href="javascript:dnload(`+ serialnum +`)" style="text-decoration:none"
 							   onMouseOver="window.status='';return true;">
 								<img src="img/dl.png" alt="Download" border="0"
@@ -127,11 +127,11 @@
 					</td>
 
 					<td align="center" valign="top">
-						26
+						`+ things[i][4] +`
 					</td>
 
 					<td align="center" valign="top">
-						<input type="hidden" name="dfids" value="`+ things[i][0] +`">
+						<input type="hidden" name="dfids" value="`+ things[i][5] +`">
 						<a href="javascript:dnload(`+ serialnum +`)" style="text-decoration:none"
 						   onMouseOver="window.status='';return true;">
 							<img src="img/dl.png" alt="Download" border="0"
@@ -151,7 +151,7 @@
         $(function () {
 
             // build the filenames based on stream and date and timezone
-            var pathname = "data/a2023-02-15.txt"
+            var pathname = "data/1-2023-02-12.txt"
             
             $.get(pathname, function (data) {
 				schdata = JSON.parse(data); // can be a global variable too...
