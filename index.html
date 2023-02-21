@@ -91,57 +91,72 @@
 			//maintable.empty();
 			var serialnum = 1;
 
-			console.log(things[2][1]);
-			 
 			for (var i = 0; i < things.length; i++) {
-				var d = new Date(things[i][1])
+				var d = new Date(things[i][1]);
+				
 				if (d > d1 && d < d2) {
-					
-                    maintable.append(`<tr >
-					<td align="center" valign="top">
-						<input type="checkbox" name="chosencb">
+
+					var htmlstring = `<tr >
+<td align="center" valign="top">`;
+					if (things[i][0] != '') {
+						htmlstring += `<input type="checkbox" name="chosencb">
 						<input type="hidden" name="fids" value="`
-						+things[i][0]+`">
+							+ things[i][0] + `">`;
+					}
+					htmlstring += `
 					</td>
 
 					<td align="center" valign="top">
-						`+ serialnum +`
+						`+ serialnum + `
 					</td>
 
 					<td align="center" valign="top">
-						`+things[i][1].substring(11,16)+`
+						`+ things[i][1].substring(11, 16) + `
 					</td>
 
 					<td align="center" valign="top">
-						`+ things[i][1].substring(11, 16) +`
+						`+ things[i][1].substring(11, 16) + `
 					</td>
 
 					<td>
-						<div class="redbold">`+ things[i][2] +`</div>
-						`+ things[i][3] +`<div class="onlymobile">
-							&nbsp; &nbsp; 					<input type="hidden" name="dfids" value="`+things[i][5]+`">
-							<a href="javascript:dnload(`+ serialnum +`)" style="text-decoration:none"
-							   onMouseOver="window.status='';return true;">
-								<img src="img/dl.png" alt="Download" border="0"
-									 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
-							</a>
-						</div><br><br>
+						<div class="redbold">`+ things[i][2] + `</div>
+						`+ things[i][3] + `<div class="onlymobile">
+							&nbsp; &nbsp; `;
+					if (things[i][5] != '') {
+						htmlstring += `< input type = "hidden" 
+                                     name = "dfids" value = "` + things[i][5] + `" >
+                            <a href="javascript:dnload(`+ serialnum + `)" style="text-decoration:none"
+                                onMouseOver="window.status='';return true;">
+                                <img src="img/dl.png" alt="Download" border="0"
+                                    onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
+                            </a> `;
+					}
+							
+					htmlstring += `</div><br><br>
 					</td>
 
 					<td align="center" valign="top">
-						`+ things[i][4] +`
+						`+ things[i][4] + `
 					</td>
 
-					<td align="center" valign="top">
-						<input type="hidden" name="dfids" value="`+ things[i][5] +`">
-						<a href="javascript:dnload(`+ serialnum +`)" style="text-decoration:none"
+					<td align="center" valign="top">`;
+					if (things[i][5] != '') {
+						htmlstring += `
+						<input type="hidden" name="dfids" value="`+ things[i][5] + `">
+						<a href="javascript:dnload(`+ serialnum + `)" style="text-decoration:none"
 						   onMouseOver="window.status='';return true;">
 							<img src="img/dl.png" alt="Download" border="0"
 								 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
-						</a>
+						</a>`;
+					}
+
+					htmlstring +=`
 					</td>
 				</tr>
-				`)
+				`;
+					
+                    maintable.append(htmlstring);
+					
 					serialnum = serialnum + 1;
 										
 				}
