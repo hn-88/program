@@ -1,38 +1,38 @@
-5019|2023-02-12 01:01:26|Song|Devotional Songs and Stotrams sung by the students of Sri Sathya Sai University|4|5019|0
-33052,33053,33054|2023-02-12 01:05:29|Discourse|Divine Discourse addressing the students during the prize distribution ceremony of the Sri Sathya Sai Higher Secondary School on 20 February 1992 - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume25/sss25-06.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks|1621|33052,33053,33054|0
-17083,8797,9369,17084|2023-02-12 02:10:18|Instrumental|Instrumental Bhajans|5664|17083,8797,9369,17084|0
-25617|2023-02-12 02:30:32|Special|Live broadcast from Prasanthi Nilayam|91|25617|1
-25600|2023-02-12 04:01:11|Song|Chanting - Sai Gayatri|15|25600|0
-31211|2023-02-12 04:16:51|Special|Musings by Prof. G. Venkataraman - the Miracle of Pure Love - part 21|34|31211|0
-47141,47142|2023-02-12 04:52:33|Song|Songs by devotees from West Godavari district of Andhra Pradesh on 10 August 2019|46|47141,47142|0
-7783,6873,6822,7876,7084,7166|2023-02-12 05:03:18|Bhajan|Bhajans sung by Bhagawan Sri Sathya Sai Baba|434333|7783,6873,6822,7876,7084,7166|0
-46230|2023-02-12 05:24:38|Special|Short Bhajan Tutor - Nache Tribhanga Krishna Murari|4|46230|0
-24028,22737,24094,24248,24261,24426,24427|2023-02-12 05:29:04|Bhajan|Prasanthi Mandir Bhajans|3545545|24028,22737,24094,24248,24261,24426,24427|0
-33834,33835,33836|2023-02-12 06:00:20|Discourse|Divine Discourse during the Chinese New Year Celebrations - 5 February 1998 - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume31/sss31-03.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks|1741|33834,33835,33836|0
-10916,9058|2023-02-12 07:17:22|Song|Devotional songs - Ramdas Kirtanas|79|10916,9058|0
-35283|2023-02-12 07:33:25|Special|Love to Love - a musical selection and conversation with Mr. Hari Subramaniam - first aired live on Thursday - 12 September 2013|86|35283|0
-14088|2023-02-12 09:00:05|Instrumental|Instrumental Bhajans from Dubai - Padasevanam|3|14088|0
-33666,33667,33668|2023-02-12 09:03:39|Discourse|Divine Discourse on 24 November 1987 addressing the members of the Sri Sathya Sai Seva Organisation - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume20/sss20-30.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks|1792|33666,33667,33668|0
-22552,22553,22554,22557|2023-02-12 10:25:51|Instrumental|Instrumental Bhajans on Piano - The Sound of Love|2323|22552,22553,22554,22557|0
-8699,8700,9321,8702|2023-02-12 10:35:09|Bhajan|Sundaram Sai Bhajans|4354|8699,8700,9321,8702|0
-9369,17084|2023-02-12 10:51:46|Instrumental|Instrumental Bhajans|64|9369,17084|0
-25617|2023-02-12 11:01:01|Special|Live broadcast from Prasanthi Nilayam|91|25617|1
-25600|2023-02-12 12:31:40|Song|Chanting - Sai Gayatri|15|25600|0
-24750,24751,24753,24752,24754,24755,24757,24756,24758,24760,24759,24761,24762,24764,24763,24765|2023-02-12 12:46:58|Song|Devotional Songs by Heartvoice at a Retreat in Northern California in the 1990s|1412121371344135|24750,24751,24753,24752,24754,24755,24757,24756,24758,24760,24759,24761,24762,24764,24763,24765|0
-44889|2023-02-12 13:26:57|Special|Radio Sai Bhajan Classroom - Mohana Raghurama|49|44889|0
-50924,50925|2023-02-12 14:15:55|Special|Special broadcast in Hindi - Sai Prem Vani - Episode 314|2819|50924,50925|1
-31211|2023-02-12 15:03:35|Special|Musings by Prof. G. Venkataraman - the Miracle of Pure Love - part 21|34|31211|0
-47142,47143,47144|2023-02-12 15:39:17|Song|Songs by devotees from West Godavari district of Andhra Pradesh on 10 August 2019|656|47142,47143,47144|0
-49348|2023-02-12 15:56:53|Special|Satsangh - 013 - How should we practice Love All Serve All - first aired on 29 October 2020|63|49348|0
-11224|2023-02-12 17:00:22|Discourse|Divine Discourse on 28 July 2007 during the valedictory function of the third World Youth Conference at Prasanthi Nilayam - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume40/sss40-13.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks|49|11224|0
-8797,16137|2023-02-12 17:50:11|Instrumental|Instrumental Bhajans|65|8797,16137|0
-16675,16676,7339,6118,6119,16677,6116,6769,7342,7335|2023-02-12 18:01:55|Song|Songs by students of Sri Sathya Sai Mirpuri College of Music Prashanthi Nilayam|56528104339|16675,16676,7339,6118,6119,16677,6116,6769,7342,7335|0
-22552,22553,22554|2023-02-12 18:57:01|Instrumental|Instrumental Bhajans on Piano - The Sound of Love|232|22552,22553,22554|0
-16678,16679,16680,13035,13036,16681,16682,16683,16685,16684,16688,16689,16687,16686,13834,13835,13836|2023-02-12 19:03:41|Concert|Concert presented by the youth in the divine presence on 17th July 1997 during the World Youth Conference|1111179111111119929|16678,16679,16680,13035,13036,16681,16682,16683,16685,16684,16688,16689,16687,16686,13834,13835,13836|0
-15288,15225,15361,15292,15290,15294,15295,15298,15300,15362|2023-02-12 20:23:56|Bhajan|Sai Students Bhajans|5754755674|15288,15225,15361,15292,15290,15294,15295,15298,15300,15362|0
-16710|2023-02-12 21:19:02|Special|Veda Pushpanjali 2 - Purushasooktham - Introduction|24|16710|0
-16711|2023-02-12 21:43:07|Special|Veda Pushpanjali 2 - Purushasooktham - Hymns|50|16711|0
-16712|2023-02-12 22:33:33|Special|Veda Pushpanjali 2 - Purushasooktham - Overview|65|16712|0
-25794|2023-02-12 23:39:31|Special|Omkaram Suprabhatam and Gayatri Mantra chant by Bhagawan|16|25794|0
-13196|2023-02-12 23:55:29|Special|Moments of Oneness - Sikhism - Devotional Music, Chanting and Readings from the Scriptures|53|13196|0
-17083,18732,18891|2023-02-13 00:48:33|Instrumental|Instrumental Bhajans|555|17083,18732,18891|0
+[["5019","2023-02-12 01:01:26","Song","Devotional Songs and Stotrams sung by the students of Sri Sathya Sai University","4","5019","0"]
+["33052,33053,33054","2023-02-12 01:05:29","Discourse","Divine Discourse addressing the students during the prize distribution ceremony of the Sri Sathya Sai Higher Secondary School on 20 February 1992 - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume25/sss25-06.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks","1621","33052,33053,33054","0"]
+["17083,8797,9369,17084","2023-02-12 02:10:18","Instrumental","Instrumental Bhajans","5664","17083,8797,9369,17084","0"]
+["25617","2023-02-12 02:30:32","Special","Live broadcast from Prasanthi Nilayam","91","25617","1"]
+["25600","2023-02-12 04:01:11","Song","Chanting - Sai Gayatri","15","25600","0"]
+["31211","2023-02-12 04:16:51","Special","Musings by Prof. G. Venkataraman - the Miracle of Pure Love - part 21","34","31211","0"]
+["47141,47142","2023-02-12 04:52:33","Song","Songs by devotees from West Godavari district of Andhra Pradesh on 10 August 2019","46","47141,47142","0"]
+["7783,6873,6822,7876,7084,7166","2023-02-12 05:03:18","Bhajan","Bhajans sung by Bhagawan Sri Sathya Sai Baba","434333","7783,6873,6822,7876,7084,7166","0"]
+["46230","2023-02-12 05:24:38","Special","Short Bhajan Tutor - Nache Tribhanga Krishna Murari","4","46230","0"]
+["24028,22737,24094,24248,24261,24426,24427","2023-02-12 05:29:04","Bhajan","Prasanthi Mandir Bhajans","3545545","24028,22737,24094,24248,24261,24426,24427","0"]
+["33834,33835,33836","2023-02-12 06:00:20","Discourse","Divine Discourse during the Chinese New Year Celebrations - 5 February 1998 - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume31/sss31-03.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks","1741","33834,33835,33836","0"]
+["10916,9058","2023-02-12 07:17:22","Song","Devotional songs - Ramdas Kirtanas","79","10916,9058","0"]
+["35283","2023-02-12 07:33:25","Special","Love to Love - a musical selection and conversation with Mr. Hari Subramaniam - first aired live on Thursday - 12 September 2013","86","35283","0"]
+["14088","2023-02-12 09:00:05","Instrumental","Instrumental Bhajans from Dubai - Padasevanam","3","14088","0"]
+["33666,33667,33668","2023-02-12 09:03:39","Discourse","Divine Discourse on 24 November 1987 addressing the members of the Sri Sathya Sai Seva Organisation - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume20/sss20-30.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks","1792","33666,33667,33668","0"]
+["22552,22553,22554,22557","2023-02-12 10:25:51","Instrumental","Instrumental Bhajans on Piano - The Sound of Love","2323","22552,22553,22554,22557","0"]
+["8699,8700,9321,8702","2023-02-12 10:35:09","Bhajan","Sundaram Sai Bhajans","4354","8699,8700,9321,8702","0"]
+["9369,17084","2023-02-12 10:51:46","Instrumental","Instrumental Bhajans","64","9369,17084","0"]
+["25617","2023-02-12 11:01:01","Special","Live broadcast from Prasanthi Nilayam","91","25617","1"]
+["25600","2023-02-12 12:31:40","Song","Chanting - Sai Gayatri","15","25600","0"]
+["24750,24751,24753,24752,24754,24755,24757,24756,24758,24760,24759,24761,24762,24764,24763,24765","2023-02-12 12:46:58","Song","Devotional Songs by Heartvoice at a Retreat in Northern California in the 1990s","1412121371344135","24750,24751,24753,24752,24754,24755,24757,24756,24758,24760,24759,24761,24762,24764,24763,24765","0"]
+["44889","2023-02-12 13:26:57","Special","Radio Sai Bhajan Classroom - Mohana Raghurama","49","44889","0"]
+["50924,50925","2023-02-12 14:15:55","Special","Special broadcast in Hindi - Sai Prem Vani - Episode 314","2819","50924,50925","1"]
+["31211","2023-02-12 15:03:35","Special","Musings by Prof. G. Venkataraman - the Miracle of Pure Love - part 21","34","31211","0"]
+["47142,47143,47144","2023-02-12 15:39:17","Song","Songs by devotees from West Godavari district of Andhra Pradesh on 10 August 2019","656","47142,47143,47144","0"]
+["49348","2023-02-12 15:56:53","Special","Satsangh - 013 - How should we practice Love All Serve All - first aired on 29 October 2020","63","49348","0"]
+["11224","2023-02-12 17:00:22","Discourse","Divine Discourse on 28 July 2007 during the valedictory function of the third World Youth Conference at Prasanthi Nilayam - <a href=https://content.sssmediacentre.org/sss/ssspeaks/volume40/sss40-13.pdf target=_blank>Click here</a> for text version from Sathya Sai Speaks","49","11224","0"]
+["8797,16137","2023-02-12 17:50:11","Instrumental","Instrumental Bhajans","65","8797,16137","0"]
+["16675,16676,7339,6118,6119,16677,6116,6769,7342,7335","2023-02-12 18:01:55","Song","Songs by students of Sri Sathya Sai Mirpuri College of Music Prashanthi Nilayam","56528104339","16675,16676,7339,6118,6119,16677,6116,6769,7342,7335","0"]
+["22552,22553,22554","2023-02-12 18:57:01","Instrumental","Instrumental Bhajans on Piano - The Sound of Love","232","22552,22553,22554","0"]
+["16678,16679,16680,13035,13036,16681,16682,16683,16685,16684,16688,16689,16687,16686,13834,13835,13836","2023-02-12 19:03:41","Concert","Concert presented by the youth in the divine presence on 17th July 1997 during the World Youth Conference","1111179111111119929","16678,16679,16680,13035,13036,16681,16682,16683,16685,16684,16688,16689,16687,16686,13834,13835,13836","0"]
+["15288,15225,15361,15292,15290,15294,15295,15298,15300,15362","2023-02-12 20:23:56","Bhajan","Sai Students Bhajans","5754755674","15288,15225,15361,15292,15290,15294,15295,15298,15300,15362","0"]
+["16710","2023-02-12 21:19:02","Special","Veda Pushpanjali 2 - Purushasooktham - Introduction","24","16710","0"]
+["16711","2023-02-12 21:43:07","Special","Veda Pushpanjali 2 - Purushasooktham - Hymns","50","16711","0"]
+["16712","2023-02-12 22:33:33","Special","Veda Pushpanjali 2 - Purushasooktham - Overview","65","16712","0"]
+["25794","2023-02-12 23:39:31","Special","Omkaram Suprabhatam and Gayatri Mantra chant by Bhagawan","16","25794","0"]
+["13196","2023-02-12 23:55:29","Special","Moments of Oneness - Sikhism - Devotional Music, Chanting and Readings from the Scriptures","53","13196","0"]
+["17083,18732,18891","2023-02-13 00:48:33","Instrumental","Instrumental Bhajans","555","17083,18732,18891","0"]]
