@@ -151,7 +151,7 @@
         $(function () {
 
             // build the filenames based on stream and date and timezone
-            var pathname = "data/1-2023-02-12.txt"
+			var pathname = "./data/1-2023-02-12.txt";
             
             $.get(pathname, function (data) {
 				schdata = JSON.parse(data); // can be a global variable too...
