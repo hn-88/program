@@ -145,7 +145,7 @@
 					if (things[i][5] != '') {
 						htmlstring += `
 						<input type="hidden" name="dfids" value="`+ things[i][5] + `">
-						<a href="javascript:dnload(`+ s(dlcounter++) + `)" style="text-decoration:none"
+						<a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
 						   onMouseOver="window.status='';return true;">
 							<img src="img/dl.png" alt="Download" border="0"
 								 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
@@ -174,7 +174,8 @@
 			// else, get tz from tz of client
 			clientTZ=Intl.DateTimeFormat().resolvedOptions().timeZone;
 			var currentdatetime = new Date();
-			var clientdatetime = currentdatetime.toLocaleDateString("en-US", { timeZone: clientTZ })
+			//var clientdatetime = currentdatetime.toLocaleDateString("en-US", { timeZone: clientTZ })
+			var clientdatetime = currentdatetime.getTime()
 			console.log(clientTZ)
 			console.log(clientdatetime)
 			var pathname = "./data/1-2023-02-12.txt";
