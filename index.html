@@ -8,6 +8,7 @@
 	<title>RadioSai Schedule</title>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 	</script>
+	<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 	<script type="text/javascript">
 		var schdata;		// these are global variables
 		var clientTZ;
@@ -90,6 +91,7 @@
 			var maintable = $('#sch');
 			//maintable.empty();
 			var serialnum = 1;
+			var dlcounter = 0;
 
 			for (var i = 0; i < things.length; i++) {
 				var d = new Date(things[i][1]);
@@ -125,7 +127,7 @@
 					if (things[i][5] != '') {
 						htmlstring += `< input type = "hidden" 
                                      name = "dfids" value = "` + things[i][5] + `" >
-                            <a href="javascript:dnload(`+ serialnum + `)" style="text-decoration:none"
+                            <a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
                                 onMouseOver="window.status='';return true;">
                                 <img src="img/dl.png" alt="Download" border="0"
                                     onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
@@ -143,7 +145,7 @@
 					if (things[i][5] != '') {
 						htmlstring += `
 						<input type="hidden" name="dfids" value="`+ things[i][5] + `">
-						<a href="javascript:dnload(`+ serialnum + `)" style="text-decoration:none"
+						<a href="javascript:dnload(`+ s(dlcounter++) + `)" style="text-decoration:none"
 						   onMouseOver="window.status='';return true;">
 							<img src="img/dl.png" alt="Download" border="0"
 								 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
@@ -157,7 +159,7 @@
 					
                     maintable.append(htmlstring);
 					
-					serialnum = serialnum + 1;
+					serialnum++;
 										
 				}
 
@@ -168,6 +170,13 @@
         $(function () {
 
             // build the filenames based on stream and date and timezone
+			// if selected, get tz from dropdown
+			// else, get tz from tz of client
+			clientTZ=Intl.DateTimeFormat().resolvedOptions().timeZone;
+			var currentdatetime = new Date();
+			var clientdatetime = currentdatetime.toLocaleDateString("en-US", { timeZone: clientTZ })
+			console.log(clientTZ)
+			console.log(clientdatetime)
 			var pathname = "./data/1-2023-02-12.txt";
             
             $.get(pathname, function (data) {
@@ -777,7 +786,7 @@
 		<br><br><br><br><br>
 
 		<a class="twitter-timeline" href="https://twitter.com/sghradiosai" data-widget-id="347202777698672642" data-chrome="noheader" width="300" height="900">Tweets by @sghradiosai</a>
-		<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+		
 
 	</div>
 
