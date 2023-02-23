@@ -11,11 +11,56 @@
 	<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 	<script type="text/javascript">
 		var schdata;		// these are global variables
-		var clientTZ;
-		var clientTZshort;
+		var strDateSelected;
+		
+		function datesdropdownupdate() {
+			// get currentlocaldatetime, and get dates 30 days before that.
+			// select currentlocaldate
+			// check for files with newer dates. If available, add those also.
+			var currentdatetime = new Date();
+			var currentdatetimemillisec = currentdatetime.getTime();
+			var clientdatetime = currentdatetime.toISOString()
+			console.log('ISO string is '+clientdatetime)
+            var clientdatetime = currentdatetime.getHours() + ' and UTC hrs is ' + currentdatetime.getUTCHours();
+			var exampletimestamp = "2023-02-12 02:10:18 GMT";
+			var selecDay = document.getElementById("dateselector");
+            selecDay.options.length = 0;
+            
+			
+			var optiondatemillisec = currentdatetimemillisec - 30 * 24 * 60 * 60 * 1000; 
+			// 30 days before currentdatetime
+            
+			while (optiondatemillisec < currentdatetimemillisec) {
+				var option = document.createElement("option");
+				var optiondate = new Date(optiondatemillisec);
+				option.value = optiondate.toISOString().substring(0, 10);
+                option.text = optiondate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+				selecDay.add(option);
+				optiondatemillisec += 24 * 60 * 60 * 1000;
+			}
+			// now add today's date and make it the selected option
+            var option = document.createElement("option");
+			var optiondate = new Date(currentdatetimemillisec);
+            option.value = optiondate.toISOString().substring(0, 10);
+            option.text = optiondate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+			selecDay.add(option);
+			selecDay.value = optiondate.toISOString().substring(0, 10);
+			// now add all those dates for which schedule data files are available
+		}
+
+		function loadselecteddatedata() {
+			// check if data file exists, and load
+			// selected date data + prev date data + next date data
+			// to allow for displaying midnight to midnight in local timezone
+			strDateSelected = document.getElementById('dateselector').selectedOptions[0].value;
+			console.log("selecteddate is " + strDateSelected);
+		}
+
 		function dcheck() {
-			document.forms[0].dchange.value = 1;
-			check();
+			//document.forms[0].dchange.value = 1;
+			//check();
+			loadselecteddatedata();
+
 		}
 		function check() {
 			document.forms[0].action = "/program/Index_new.php";
@@ -107,7 +152,7 @@
             return hours + ':' + ("0" + mins).slice(-2) + ampm;
 		}
 
-		function showDateFiltRows(things) {
+		function showDateFiltRows(things, d1, d2) {
 			// select is for B, C, D, E, G, H, I, M
 			var d1 = new Date("2023-02-11 23:59:59");
 			var d2 = new Date("2023-02-12 23:59:59");
@@ -190,52 +235,28 @@
 
 		}
 
-        $(function () {
+		$(function () {
 
+			datesdropdownupdate();
+			loadselecteddatedata();
+            //showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"))
             // build the filenames based on stream and date and timezone
-			// if selected, get tz from dropdown
-			// else, get tz from tz of client
-			clientTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            console.log("selecteddate is " + strDateSelected);
 
-			var currentdatetime = new Date();
-			//var clientdatetime = currentdatetime.toLocaleDateString("en-US", { timeZone: clientTZ })
-			var clientdatetime = currentdatetime.getHours() + ' and UTC hrs is ' + currentdatetime.getUTCHours();
-			var exampletimestamp = "2023-02-12 02:10:18 GMT";
-
-			clientTZshort = getTimezoneShort(clientTZ);
-            console.log("example timestamp is "+new Date(exampletimestamp).toString())
-			console.log(clientTZ)
-            console.log(clientTZshort)
-			console.log(clientdatetime)
-			console.log(currentdatetime.getTimezoneOffset)
 			var pathname = "./data/1-2023-02-12.txt";
 			try {
 				$.get(pathname, function (data) {
 					schdata = JSON.parse(data); // can be a global variable too...
 					//schdata = schdata.concat(JSON.parse(data2))
-					showDateFiltRows(schdata);
+					showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"));
 				});
 			}
 			catch {
-				pathname = "./data/1-2023-02-12.txt";
-                $.get(pathname, function (data) {
-                    schdata = JSON.parse(data); // can be a global variable too...
-                    //schdata = schdata.concat(JSON.parse(data2))
-                    showDateFiltRows(schdata);
-                });
-
+				// do nothing
 			}
 		});
 
-        function getTimezoneShort(timeZone) {
-            return new Intl.DateTimeFormat('en-US', {
-                timeZone: timeZone,
-                timeZoneName: 'short'
-            }).formatToParts(new Date())
-                .find(part => part.type == "timeZoneName")
-                .value;
-        }
-
+        
 
 	</script>
 </head>
@@ -565,7 +586,7 @@
 									<tr>
 										<td height="41" class="homediv choosebg">Choose Date:</td>
 										<td bgcolor="#344655">
-											<select name="currentDate" class="homediv choosebg blacktext wid15" onChange="javascript:dcheck()">
+											<select id="dateselector" name="currentDate" class="homediv choosebg blacktext wid15" onChange="javascript:dcheck()">
 												<option value="2023-01-05">
 													05-Jan-2023
 												</option>
