@@ -22,7 +22,7 @@
 			var clientdatetime = currentdatetime.toISOString()
 			//console.log('ISO string is '+clientdatetime)
             var clientdatetime = currentdatetime.getHours() + ' and UTC hrs is ' + currentdatetime.getUTCHours();
-			var exampletimestamp = "2023-02-12 02:10:18 GMT";
+			var exampletimestamp = "2023-02-12T02:10:18.000Z";
 			console.log ('Exampletimestamp is '+ new Date(exampletimestamp).toISOString() );
 			var selecDay = document.getElementById("dateselector");
             selecDay.options.length = 0;
