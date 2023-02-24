@@ -154,7 +154,7 @@
 		}
 		
 		function formatLocaltime(timestring) {
-			var gtimestring = timestring.substring(0,10)+'T'+timestring.substring(11,15)+'.000Z';
+			var gtimestring = timestring.substring(0,10)+'T'+timestring.substring(11,16)+'.000Z';
 			// this converts this to ISOString format
 			console.log('formatLocaltime - gtimestring is ' + gtimestring)
 			var localDateTime = new Date(gtimestring);
