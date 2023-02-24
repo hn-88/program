@@ -154,11 +154,13 @@
 		}
 		
 		function formatLocaltime(timestring) {
-			console.log('formatLocaltime - timestring is ' + timestring)
-			//var localDateTime = new Date(timestring + ' GMT');
+			var gtimestring = timestring.substring(0,10)+'T'+timestring.substring(11,15)+'.000Z';
+			// this converts this to ISOString format
+			console.log('formatLocaltime - gtimestring is ' + gtimestring)
+			var localDateTime = new Date(gtimestring);
 			
-			//var ltimestring = localDateTime.toISOString();
-			var ltimestring = timestring;
+			var ltimestring = localDateTime.toISOString();
+			//var ltimestring = timestring;
 			console.log(ltimestring)
 			
 			var hours = parseInt(ltimestring.substring(12, 14));
