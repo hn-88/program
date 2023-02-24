@@ -12,6 +12,7 @@
 	<script type="text/javascript">
 		var schdata;		// these are global variables
 		var strDateSelected;
+		var tzoffsetmilli = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
 		
 		function datesdropdownupdate() {
 			// get currentlocaldatetime, and get dates 30 days before that.
@@ -159,7 +160,7 @@
 			console.log('formatLocaltime - gtimestring is ' + gtimestring)
 			var localDateTime = new Date(gtimestring);
 			
-			var ltimestring = localDateTime.toISOString();
+			var ltimestring = (new Date(localDateTime + tzoffset)).toISOString();
 			//var ltimestring = timestring;
 			console.log(ltimestring)
 			
