@@ -20,9 +20,10 @@
 			var currentdatetime = new Date();
 			var currentdatetimemillisec = currentdatetime.getTime();
 			var clientdatetime = currentdatetime.toISOString()
-			console.log('ISO string is '+clientdatetime)
+			//console.log('ISO string is '+clientdatetime)
             var clientdatetime = currentdatetime.getHours() + ' and UTC hrs is ' + currentdatetime.getUTCHours();
 			var exampletimestamp = "2023-02-12 02:10:18 GMT";
+			console.log ('Exampletimestamp is '+ new Date(exampletimestamp).toISOString() );
 			var selecDay = document.getElementById("dateselector");
             selecDay.options.length = 0;
             
@@ -153,9 +154,11 @@
 		}
 		
 		function formatLocaltime(timestring) {
-			var localDateTime = new Date(timestring + ' GMT');
+			console.log('formatLocaltime - timestring is ' + timestring)
+			//var localDateTime = new Date(timestring + ' GMT');
 			
-			var ltimestring = localDateTime.toISOString();
+			//var ltimestring = localDateTime.toISOString();
+			var ltimestring = timestring;
 			console.log(ltimestring)
 			
 			var hours = parseInt(ltimestring.substring(12, 14));
@@ -182,8 +185,8 @@
 
 		function showDateFiltRows(things, d1, d2) {
 			// select is for B, C, D, E, G, H, I, M
-			var d1 = new Date("2023-02-11 23:59:59");
-			var d2 = new Date("2023-02-12 23:59:59");
+			//var d1 = new Date("2023-02-11 23:59:59");
+			//var d2 = new Date("2023-02-12 23:59:59");
 			var maintable = $('#sch');
 			//maintable.empty();
 			var serialnum = 1;
@@ -269,7 +272,7 @@
 			loadselecteddatedata();
             //showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"))
             // build the filenames based on stream and date and timezone
-            console.log("selecteddate is " + strDateSelected);
+            //console.log("selecteddate is " + strDateSelected);
 
 			var pathname = "./data/1-2023-02-12.txt";
 			try {
