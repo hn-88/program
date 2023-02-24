@@ -160,7 +160,7 @@
 			console.log('formatLocaltime - gtimestring is ' + gtimestring)
 			var localDateTime = new Date(gtimestring);
 			
-			var ltimestring = (new Date(localDateTime + tzoffset)).toISOString();
+			var ltimestring = (new Date(localDateTime + tzoffsetmilli)).toISOString();
 			//var ltimestring = timestring;
 			console.log(ltimestring)
 			
