@@ -158,9 +158,9 @@
 			var gtimestring = timestring.substring(0,10)+'T'+timestring.substring(11,16)+':00.000Z';
 			// this converts this to ISOString format
 			console.log('formatLocaltime - gtimestring is ' + gtimestring)
-			var localDateTime = new Date(gtimestring);
+			var gDateTime = new Date(gtimestring);
 			
-			var ltimestring = (new Date(localDateTime + tzoffsetmilli)).toISOString();
+			var ltimestring = (new Date(gDateTime.getTime() + tzoffsetmilli)).toISOString();
 			//var ltimestring = timestring;
 			console.log(ltimestring)
 			
