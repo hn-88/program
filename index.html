@@ -12,6 +12,8 @@
 	<script type="text/javascript">
 		var schdata;		// these are global variables
 		var strDateSelected;
+		var tzoffsetmilli = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+		//console.log('tzoneoffsetmilli as initialized = '+tzoffsetmilli)
 		
 		function datesdropdownupdate() {
 			// get currentlocaldatetime, and get dates 30 days before that.
@@ -20,9 +22,10 @@
 			var currentdatetime = new Date();
 			var currentdatetimemillisec = currentdatetime.getTime();
 			var clientdatetime = currentdatetime.toISOString()
-			console.log('ISO string is '+clientdatetime)
+			//console.log('ISO string is '+clientdatetime)
             var clientdatetime = currentdatetime.getHours() + ' and UTC hrs is ' + currentdatetime.getUTCHours();
-			var exampletimestamp = "2023-02-12 02:10:18 GMT";
+			var exampletimestamp = "2023-02-12T02:10:18.000Z";
+			//console.log ('Exampletimestamp is '+ new Date(exampletimestamp).toISOString() );
 			var selecDay = document.getElementById("dateselector");
             selecDay.options.length = 0;
             
@@ -53,7 +56,7 @@
 			// selected date data + prev date data + next date data
 			// to allow for displaying midnight to midnight in local timezone
 			strDateSelected = document.getElementById('dateselector').selectedOptions[0].value;
-			console.log("selecteddate is " + strDateSelected);
+			//console.log("selecteddate is " + strDateSelected);
 		}
 
 		function dcheck() {
@@ -132,30 +135,66 @@
 
 		function formatGMTtime(timestring) {
 			var hours = parseInt(timestring.substring(11, 13));
-            var mins = parseInt(timestring.substring(14, 16));
+            		var mins = parseInt(timestring.substring(14, 16));
+			var ampm = ' AM';
+
+		    if (mins >= 55) { mins = 0; hours = hours + 1; }
+		    else {
+			mins = mins + 5 - (mins % 5);
+			if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
+			    mins -= 5;
+				}
+
+		    if (hours > 12) {
+			ampm = ' PM';
+			hours = hours - 12;
+		    } else if (hours == 12) {
+			ampm = ' PM';
+				}
+
+            	  return hours + ':' + ("0" + mins).slice(-2) + ampm;
+		}
+		
+		function formatLocaltime(timestring) {
+			var gtimestring = timestring.substring(0,10)+'T'+timestring.substring(11,16)+':00.000Z';
+			// this converts this to ISOString format
+			//console.log('formatLocaltime - gtimestring is ' + gtimestring)
+			var gDateTime = new Date(gtimestring);
+			//console.log(gDateTime.getTime());
+			//console.log(tzoffsetmilli)
+			// tzoffsetmilli for India = -19800000
+			// note the minus sign!
+			
+			var ltimestring = (new Date(gDateTime.getTime() - tzoffsetmilli)).toISOString();
+			//var ltimestring = timestring;
+			//console.log(ltimestring)
+			
+			var hours = parseInt(ltimestring.substring(11, 13));
+            var mins = parseInt(ltimestring.substring(14, 16));
 			var ampm = ' AM';
 			
-            if (mins >= 55) { mins = 0; hours = hours + 1; }
-            else {
-                mins = mins + 5 - (mins % 5);
-                if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
-                    mins -= 5;
-			}
+		    if (mins >= 55) { mins = 0; hours = hours + 1; }
+		    else {
+			mins = mins + 5 - (mins % 5);
+			if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
+			    mins -= 5;
+				}
 
-            if (hours > 12) {
-                ampm = ' PM';
-                hours = hours - 12;
-            } else if (hours == 12) {
-                ampm = ' PM';
-			}
+		    if (hours > 12) {
+			ampm = ' PM';
+			hours = hours - 12;
+		    } else if (hours == 12) {
+			ampm = ' PM';
+				}
 
-            return hours + ':' + ("0" + mins).slice(-2) + ampm;
+		    return hours + ':' + ("0" + mins).slice(-2) + ampm;
 		}
+
 
 		function showDateFiltRows(things, d1, d2) {
 			// select is for B, C, D, E, G, H, I, M
-			var d1 = new Date("2023-02-11 23:59:59");
-			var d2 = new Date("2023-02-12 23:59:59");
+			//var d1 = new Date("2023-02-11 23:59:59");
+			//var d2 = new Date("2023-02-12 23:59:59");
 			var maintable = $('#sch');
 			//maintable.empty();
 			var serialnum = 1;
@@ -181,7 +220,7 @@
 					</td>
 
 					<td align="center" valign="top">
-						`+ things[i][1].substring(11, 16) + `
+						`+ formatLocaltime(things[i][1]) + `
 					</td>
 
 					<td align="center" valign="top">
@@ -241,7 +280,7 @@
 			loadselecteddatedata();
             //showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"))
             // build the filenames based on stream and date and timezone
-            console.log("selecteddate is " + strDateSelected);
+            //console.log("selecteddate is " + strDateSelected);
 
 			var pathname = "./data/1-2023-02-12.txt";
 			try {
@@ -307,423 +346,23 @@
 										</td>
 									</tr>
 									
-									<tr>
-										<td height="42" class="homediv choosebg">Choose the TimeZone:</td>
-										<td colspan="2" bgcolor="#344655">
-											<select name="zoneId" class="homediv choosebg blacktext" onchange='check();'>
-												<option value="89">
-													ANTIGUA AND BARBUDA
-												</option>
-												<option value="2">
-													ARGENTINA
-												</option>
-												<option value="3">
-													AUSTRALIA NSW
-												</option>
-												<option value="8">
-													AUSTRIA
-												</option>
-												<option value="9">
-													BAHRAIN
-												</option>
-												<option value="10">
-													BELGIUM
-												</option>
-												<option value="11">
-													BOLIVIA
-												</option>
-												<option value="12">
-													BOSNIA
-												</option>
-												<option value="16">
-													BRAZ-EAST
-												</option>
-												<option value="15">
-													BRAZ-MAT-GROS
-												</option>
-												<option value="17">
-													BRAZ-NORTH
-												</option>
-												<option value="18">
-													BRAZ-WEST
-												</option>
-												<option value="13">
-													BRAZIL-CAP
-												</option>
-												<option value="14">
-													BRAZIL-FDN
-												</option>
-												<option value="82">
-													BRITAIN
-												</option>
-												<option value="19">
-													BULGARIA
-												</option>
-												<option value="20">
-													CANADA-ALBERTA
-												</option>
-												<option value="22">
-													CANADA-MANITOBA
-												</option>
-												<option value="23">
-													CANADA-MONTREAL
-												</option>
-												<option value="21">
-													CANADA-VANCOUVER
-												</option>
-												<option value="24">
-													CHILE
-												</option>
-												<option value="25">
-													COLOMBIA
-												</option>
-												<option value="87">
-													COSTA RICA
-												</option>
-												<option value="26">
-													CROATIA
-												</option>
-												<option value="27">
-													CUBA
-												</option>
-												<option value="28">
-													ECUADOR
-												</option>
-												<option value="29">
-													EL SALVADOR
-												</option>
-												<option value="30">
-													FIJI
-												</option>
-												<option value="31">
-													GABON
-												</option>
-												<option value="32">
-													GERMANY
-												</option>
-												<option value="33">
-													GHANA
-												</option>
-												<option value="34">
-													GREECE
-												</option>
-												<option value="35">
-													GUATEMALA
-												</option>
-												<option value="36">
-													GUYANA
-												</option>
-												<option value="37">
-													HAITI
-												</option>
-												<option value="38">
-													HAWAII
-												</option>
-												<option value="39">
-													HONG KONG
-												</option>
-												<option value="40">
-													HUNGARY
-												</option>
-												<option value="1"
-														selected>
-													INDIA
-												</option>
-												<option value="42">
-													INDONESIA-CIT
-												</option>
-												<option value="43">
-													INDONESIA-TIMUR
-												</option>
-												<option value="44">
-													INDONESIA-WIB
-												</option>
-												<option value="45">
-													ISRAEL
-												</option>
-												<option value="46">
-													ITALY
-												</option>
-												<option value="47">
-													JAPAN
-												</option>
-												<option value="48">
-													KENYA
-												</option>
-												<option value="49">
-													KOREA
-												</option>
-												<option value="50">
-													LATVIA
-												</option>
-												<option value="51">
-													LITHUANIA
-												</option>
-												<option value="52">
-													MACEDONIA
-												</option>
-												<option value="53">
-													MALAWI
-												</option>
-												<option value="54">
-													MALAYSIA
-												</option>
-												<option value="55">
-													MAURITIUS
-												</option>
-												<option value="56">
-													MEXICO
-												</option>
-												<option value="57">
-													NEPAL
-												</option>
-												<option value="58">
-													NEW ZEALAND
-												</option>
-												<option value="59">
-													NICARAGUA
-												</option>
-												<option value="60">
-													NIGERIA
-												</option>
-												<option value="61">
-													OMAN
-												</option>
-												<option value="62">
-													PANAMA
-												</option>
-												<option value="63">
-													PARAGUAY
-												</option>
-												<option value="64">
-													PERU
-												</option>
-												<option value="65">
-													PHILIPPINES
-												</option>
-												<option value="66">
-													POLAND
-												</option>
-												<option value="88">
-													PUERTO RICO
-												</option>
-												<option value="67">
-													RUSSIA-MOSCOW
-												</option>
-												<option value="68">
-													SAUDI ARABIA
-												</option>
-												<option value="69">
-													SINGAPORE
-												</option>
-												<option value="70">
-													SOUTH AFRICA
-												</option>
-												<option value="71">
-													SPAIN
-												</option>
-												<option value="72">
-													SRI LANKA
-												</option>
-												<option value="73">
-													SWEDEN
-												</option>
-												<option value="74">
-													SWITZERLAND
-												</option>
-												<option value="75">
-													TAIWAN
-												</option>
-												<option value="76">
-													TANZANIA
-												</option>
-												<option value="77">
-													THAILAND
-												</option>
-												<option value="78">
-													TRINIDAD
-												</option>
-												<option value="81">
-													UAE
-												</option>
-												<option value="79">
-													UGANDA
-												</option>
-												<option value="80">
-													UKRAINE
-												</option>
-												<option value="83">
-													URUGUAY
-												</option>
-												<option value="7">
-													US CST
-												</option>
-												<option value="5">
-													US EST
-												</option>
-												<option value="6">
-													US MST
-												</option>
-												<option value="4">
-													US PST
-												</option>
-												<option value="84">
-													VENEZUELA
-												</option>
-												<option value="90">
-													WEST INDIES
-												</option>
-												<option value="85">
-													ZAMBIA
-												</option>
-												<option value="86">
-													ZIMBABWE
-												</option>
-											</select>
-										</td>
-									</tr>
+									
 									
 									<tr>
 										<td height="41" class="homediv choosebg">Choose Date:</td>
 										<td bgcolor="#344655">
 											<select id="dateselector" name="currentDate" class="homediv choosebg blacktext wid15" onChange="javascript:dcheck()">
-												<option value="2023-01-05">
-													05-Jan-2023
+												<option value=" ">
+													-
 												</option>
-												<option value="2023-01-06">
-													06-Jan-2023
-												</option>
-												<option value="2023-01-07">
-													07-Jan-2023
-												</option>
-												<option value="2023-01-08">
-													08-Jan-2023
-												</option>
-												<option value="2023-01-09">
-													09-Jan-2023
-												</option>
-												<option value="2023-01-10">
-													10-Jan-2023
-												</option>
-												<option value="2023-01-11">
-													11-Jan-2023
-												</option>
-												<option value="2023-01-12">
-													12-Jan-2023
-												</option>
-												<option value="2023-01-13">
-													13-Jan-2023
-												</option>
-												<option value="2023-01-14">
-													14-Jan-2023
-												</option>
-												<option value="2023-01-15">
-													15-Jan-2023
-												</option>
-												<option value="2023-01-16">
-													16-Jan-2023
-												</option>
-												<option value="2023-01-17">
-													17-Jan-2023
-												</option>
-												<option value="2023-01-18">
-													18-Jan-2023
-												</option>
-												<option value="2023-01-19">
-													19-Jan-2023
-												</option>
-												<option value="2023-01-20">
-													20-Jan-2023
-												</option>
-												<option value="2023-01-21">
-													21-Jan-2023
-												</option>
-												<option value="2023-01-22">
-													22-Jan-2023
-												</option>
-												<option value="2023-01-23">
-													23-Jan-2023
-												</option>
-												<option value="2023-01-24">
-													24-Jan-2023
-												</option>
-												<option value="2023-01-25">
-													25-Jan-2023
-												</option>
-												<option value="2023-01-26">
-													26-Jan-2023
-												</option>
-												<option value="2023-01-27">
-													27-Jan-2023
-												</option>
-												<option value="2023-01-28">
-													28-Jan-2023
-												</option>
-												<option value="2023-01-29">
-													29-Jan-2023
-												</option>
-												<option value="2023-01-30">
-													30-Jan-2023
-												</option>
-												<option value="2023-01-31">
-													31-Jan-2023
-												</option>
-												<option value="2023-02-01">
-													01-Feb-2023
-												</option>
-												<option value="2023-02-02">
-													02-Feb-2023
-												</option>
-												<option value="2023-02-03">
-													03-Feb-2023
-												</option>
-												<option value="2023-02-04">
-													04-Feb-2023
-												</option>
-												<option value="2023-02-05">
-													05-Feb-2023
-												</option>
-												<option value="2023-02-06">
-													06-Feb-2023
-												</option>
-												<option value="2023-02-07">
-													07-Feb-2023
-												</option>
-												<option value="2023-02-08">
-													08-Feb-2023
-												</option>
-												<option value="2023-02-09">
-													09-Feb-2023
-												</option>
-												<option value="2023-02-10">
-													10-Feb-2023
-												</option>
-												<option value="2023-02-11">
-													11-Feb-2023
-												</option>
-												<option value="2023-02-12">
-													12-Feb-2023
-												</option>
-												<option value="2023-02-13">
-													13-Feb-2023
-												</option>
-												<option value="2023-02-14">
-													14-Feb-2023
-												</option>
-												<option value="2023-02-15"
-														selected>
-													15-Feb-2023
-												</option>
-												<option value="2023-02-16">
-													16-Feb-2023
-												</option>
+												
 											</select>
 											<input type="hidden" name="dchange" value="0">
 										</td>
 
 										<td class="homediv choosebg">
 											<input type="hidden" name="todays" value="0">
-											or) <a href="javascript:todayFullSchedule()" style="color:#fff">Return to today's full schedule</a>
+											or) <a href="javascript:todayFullSchedule()" style="color:#fff">Return to today's schedule</a>
 										</td>
 									</tr>
 									<tr></tr>
@@ -776,7 +415,7 @@
 
 					<th width="11%">
 						Time
-						<br>(IST)
+						<br><small>(local)</small>
 					</th>
 
 					<th width="10%">
