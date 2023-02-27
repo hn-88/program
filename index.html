@@ -50,6 +50,12 @@
 			selecDay.value = optiondate.toISOString().substring(0, 10);
 			// now add all those dates for which schedule data files are available
 			// currently doing for 5 days in future
+			var dateplus5ms = new Date(currentdatetimemillisec+ 5 * 24 * 60 * 60 * 1000);
+			var dtimems = currentdatetimemillisec+ 24 * 60 * 60 * 1000 ;
+			while (dtimems < dateplus5ms) {
+				addifscheduledataavailable(dtimems);
+				dtmems += 24 * 60 * 60 * 1000 ;
+			}
 		}
 		
 		function adddatetodropdown(odate) {
