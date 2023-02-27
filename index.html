@@ -49,6 +49,72 @@
 			selecDay.add(option);
 			selecDay.value = optiondate.toISOString().substring(0, 10);
 			// now add all those dates for which schedule data files are available
+			// currently doing for 5 days in future
+		}
+		
+		function adddatetodropdown(odate) {
+			console.log('adddatetodropdown called.')
+		}
+		
+		function addifscheduledataavailable(dtimems) {
+			var odate = new Date(dtimems);
+			var ostring = odate.toISOString().substring(0, 10);
+			var urlToCheck = "./data/1-" + ostring + ".txt";
+			console.log('urlToCheck='+urlToCheck);
+			// https://stackoverflow.com/questions/3646914/how-do-i-check-if-file-exists-in-jquery-or-pure-javascript
+			$.ajax({
+					url:urlToCheck,
+					type:'HEAD',
+					error: function()
+					{
+						//1-file does not exist
+						// check for another stream file
+						urlToCheck = "./data/5-" + ostring + ".txt";
+						console.log('Checking '+urlToCheck)
+						$.ajax({
+								url:urlToCheck,
+								type:'HEAD',
+								error: function()
+								{
+									//5-file does not exist
+									// check for another stream file
+									urlToCheck = "./data/6-" + ostring + ".txt";
+									console.log('Checking '+urlToCheck)
+									$.ajax({
+											url:urlToCheck,
+											type:'HEAD',
+											error: function()
+											{
+												//6-file does not exist
+												// so do not call adddate function
+											},
+											success: function()
+											{
+												//6-file exists
+												console.log('6exists')
+												adddatetodropdown(odate);
+											}
+										});
+								},
+								success: function()
+								{
+									//5-file exists
+									console.log('5exists')
+									adddatetodropdown(odate);
+								}
+							});
+						
+						
+						
+					},
+					success: function()
+					{
+						//1-file exists
+						console.log('1exists')
+						adddatetodropdown(odate);
+					}
+				});
+			
 		}
 
 		function loadselecteddatedata() {
@@ -66,17 +132,17 @@
 
 		}
 		function check() {
-			document.forms[0].action = "/program/Index_new.php";
-			document.forms[0].target = "";
-			document.forms[0].submit();
+			//~ document.forms[0].action = "/program/Index_new.php";
+			//~ document.forms[0].target = "";
+			//~ document.forms[0].submit();
 		}
 
 		function todayFullSchedule() {
-			document.forms[0].dchange.value = 0;
-			document.forms[0].action = "/program/Index_new.php";
-			document.forms[0].target = "";
-			document.forms[0].todays.value = "1";
-			document.forms[0].submit();
+			//~ document.forms[0].dchange.value = 0;
+			//~ document.forms[0].action = "/program/Index_new.php";
+			//~ document.forms[0].target = "";
+			//~ document.forms[0].todays.value = "1";
+			//~ document.forms[0].submit();
 		}
 
 		function checkall() {
@@ -278,7 +344,7 @@
 
 			datesdropdownupdate();
 			loadselecteddatedata();
-            //showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"))
+            //~ showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"))
             // build the filenames based on stream and date and timezone
             //console.log("selecteddate is " + strDateSelected);
 
