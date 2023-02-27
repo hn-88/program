@@ -134,6 +134,29 @@
 			// to allow for displaying midnight to midnight in local timezone
 			strDateSelected = document.getElementById('dateselector').selectedOptions[0].value;
 			//console.log("selecteddate is " + strDateSelected);
+			strStreamIdSelected = document.getElementById('strIdselector').selectedOptions[0].value;
+			
+			var selDatems = new Date(strDateSelected + " 09:09:09").getTime();
+			var nextDate = new Date(selDatems + 24 * 60 * 60 * 1000);
+			var prevDate = new Date(selDatems - 24 * 60 * 60 * 1000);
+			
+			var strPrevDate = prevDate.toISOString().substring(0, 10);
+			var strNextDate = nextDate.toISOString().substring(0, 10);
+			var dtimePrevMidnight = new Date(strPrevDate + " 23:59:59");
+			var dtimeSelectedMidnight = new Date(strDateSelected + " 23:59:59");
+			
+			var pathname = "./data/" + strStreamIdSelected + "-" + strDateSelected + ".txt";
+			try {
+				$.get(pathname, function (data) {
+					schdata = JSON.parse(data); // can be a global variable too...
+					//schdata = schdata.concat(JSON.parse(data2))
+					showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+				});
+			}
+			catch {
+				// do nothing
+			}
+			
 		}
 
 		function dcheck() {
@@ -408,7 +431,7 @@
 										<td class="homediv choosebg" height="44">Choose the Station:</td>
 
 										<td colspan="2" class="homediv choosebg">
-											<select name="streamId" class="homediv choosebg blacktext" onchange='check();'>
+											<select id="strIdselector" name="streamId" class="homediv choosebg blacktext" onchange='check();'>
 												<option value="6">
 													DiscourseStream
 												</option>
