@@ -54,12 +54,17 @@
 			var dtimems = currentdatetimemillisec+ 24 * 60 * 60 * 1000 ;
 			while (dtimems < dateplus5ms) {
 				addifscheduledataavailable(dtimems);
-				dtmems += 24 * 60 * 60 * 1000 ;
+				dtimems += 24 * 60 * 60 * 1000 ;
 			}
 		}
 		
 		function adddatetodropdown(odate) {
-			console.log('adddatetodropdown called.')
+			console.log('adddatetodropdown called.');
+			var selecDay = document.getElementById("dateselector");
+			var option = document.createElement("option");
+			option.value = odate.toISOString().substring(0, 10);
+            option.text = odate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+			selecDay.add(option);
 		}
 		
 		function addifscheduledataavailable(dtimems) {
