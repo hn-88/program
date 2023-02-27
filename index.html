@@ -375,24 +375,10 @@
 		}
 
 		$(function () {
-
+			// this runs on page load
 			datesdropdownupdate();
 			loadselecteddatedata();
-            //~ showDateFiltRows(schdata, new Date("2023-02-11 23:59:59"), new Date("2023-02-12 23:59:59"))
-            // build the filenames based on stream and date and timezone
-            //console.log("selecteddate is " + strDateSelected);
-
-			var pathname = "./data/1-2023-02-27.txt";
-			try {
-				$.get(pathname, function (data) {
-					schdata = JSON.parse(data); // can be a global variable too...
-					//schdata = schdata.concat(JSON.parse(data2))
-					showDateFiltRows(schdata, new Date("2023-02-26 23:59:59"), new Date("2023-02-27 23:59:59"));
-				});
-			}
-			catch {
-				// do nothing
-			}
+            
 		});
 
         
@@ -431,7 +417,7 @@
 										<td class="homediv choosebg" height="44">Choose the Station:</td>
 
 										<td colspan="2" class="homediv choosebg">
-											<select id="strIdselector" name="streamId" class="homediv choosebg blacktext" onchange='check();'>
+											<select id="strIdselector" name="streamId" class="homediv choosebg blacktext" onchange="javascript:dcheck()">
 												<option value="6">
 													DiscourseStream
 												</option>
