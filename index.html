@@ -137,6 +137,7 @@
 			strStreamIdSelected = document.getElementById('strIdselector').selectedOptions[0].value;
 			
 			var selDatems = new Date(strDateSelected + " 09:09:09").getTime();
+			console.log("selectedDatems converted back to ISO=" + new Date(selDatems).getISOString()); 
 			var nextDate = new Date(selDatems + 24 * 60 * 60 * 1000);
 			var prevDate = new Date(selDatems - 24 * 60 * 60 * 1000);
 			
@@ -145,16 +146,25 @@
 			var dtimePrevMidnight = new Date(strPrevDate + " 23:59:59");
 			var dtimeSelectedMidnight = new Date(strDateSelected + " 23:59:59");
 			
-			var pathname = "./data/" + strStreamIdSelected + "-" + strDateSelected + ".txt";
+			var pathname1 = "./data/" + strStreamIdSelected + "-" + strPrevDate + ".txt";
+			var pathname2 = "./data/" + strStreamIdSelected + "-" + strDateSelected + ".txt";
+			var pathname3 = "./data/" + strStreamIdSelected + "-" + strNextDate + ".txt";
 			try {
-				$.get(pathname, function (data) {
+				$.get(pathname1, function (data) { //jQuery.get( url [, data ] [, success ] [, dataType ] )
 					schdata = JSON.parse(data); // can be a global variable too...
-					//schdata = schdata.concat(JSON.parse(data2))
+					$.get(pathname2, function (data2) {
+						schdata = schdata.concat(JSON.parse(data2));
+						$.get(pathname3, function (data3) {
+							schdata = schdata.concat(JSON.parse(data3));
+						}); // pathname3 get end
+					}); // pathname2 get end
+					
 					showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
-				});
+				}); // pathname1 get end - todo - check what happens if one of these is missing
 			}
-			catch {
-				// do nothing
+			catch (err) {
+				console.log(err)
+				
 			}
 			
 		}
@@ -297,11 +307,15 @@
 			//var d2 = new Date("2023-02-12 23:59:59");
 			var maintable = $('#sch');
 			//maintable.empty();
+			var mytbl = document.getElementById("sch");
+			mytbl.getElementsByTagName("tbody")[0].innerHTML = mytbl.rows[0].innerHTML;
+			// clear all rows except the header row, rows[0]
 			var serialnum = 1;
 			var dlcounter = 0;
 
 			for (var i = 0; i < things.length; i++) {
-				var d = new Date(things[i][1]);
+				var gmttimestr = things[i][1].substring(0,10)+'T'+things[i][1].substring(11,16)+':00.000Z';
+				var d = new Date(gmttimestr);
 				
 				if (d > d1 && d < d2) {
 
@@ -488,6 +502,7 @@
 
 			<!-------------------------------------------------------------------------------------------------------------------------------------->
 			<table id="sch" width="100%" border="0" cellspacing="1" cellpadding="12">
+			<tbody>
 				<tr>
 
 					<th width="10%">
@@ -522,7 +537,7 @@
 				</tr>
 
 				
-				
+			</tbody>	
 			</table>
 		</form>
 		<!-------------------------------------------------------------------------------------------------------------------------------------->
