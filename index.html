@@ -137,7 +137,7 @@
 			strStreamIdSelected = document.getElementById('strIdselector').selectedOptions[0].value;
 			
 			var selDatems = new Date(strDateSelected + " 09:09:09").getTime();
-			console.log("selectedDatems converted back to ISO=" + new Date(selDatems).getISOString()); 
+			console.log("selectedDatems converted back to ISO=" + new Date(selDatems).toISOString()); 
 			var nextDate = new Date(selDatems + 24 * 60 * 60 * 1000);
 			var prevDate = new Date(selDatems - 24 * 60 * 60 * 1000);
 			
