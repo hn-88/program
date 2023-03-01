@@ -145,25 +145,95 @@
 			var strNextDate = nextDate.toISOString().substring(0, 10);
 			var dtimePrevMidnight = new Date(strPrevDate + " 23:59:59");
 			var dtimeSelectedMidnight = new Date(strDateSelected + " 23:59:59");
+			console.log(dtimePrevMidnight.toISOString() + ' to ' + dtimeSelectedMidnight.toISOString());
 			
 			var pathname1 = "./data/" + strStreamIdSelected + "-" + strPrevDate + ".txt";
 			var pathname2 = "./data/" + strStreamIdSelected + "-" + strDateSelected + ".txt";
 			var pathname3 = "./data/" + strStreamIdSelected + "-" + strNextDate + ".txt";
 			try {
-				$.get(pathname1, function (data) { //jQuery.get( url [, data ] [, success ] [, dataType ] )
-					schdata = JSON.parse(data); // can be a global variable too...
-					$.get(pathname2, function (data2) {
-						schdata = schdata.concat(JSON.parse(data2));
-						$.get(pathname3, function (data3) {
-							schdata = schdata.concat(JSON.parse(data3));
-						}); // pathname3 get end
-					}); // pathname2 get end
+                $.ajax({
+                    url: pathname1,
+                    type: 'GET',
+					success: function (data) {
+						schdata = JSON.parse(data); // can be a global variable too...
+						console.log('length after 1=' + schdata.length)
+                        $.ajax({
+                            url: pathname2,
+                            type: 'GET',
+							success: function (data2) {
+								schdata = schdata.concat(JSON.parse(data2));
+								console.log('length after 2=' + schdata.length)
+								$.ajax({
+									url: pathname3,
+									type: 'GET',
+									success: function (data3) {
+										schdata = schdata.concat(JSON.parse(data3));
+										console.log('length after 3=' + schdata.length);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									} //pathname1&2&3 success end
+								}); // pathname1&2&3 ajax end
+							},
+							error: function () {
+								// 1s2f, but try 3
+                                $.ajax({
+                                    url: pathname3,
+                                    type: 'GET',
+                                    success: function (data3) {
+                                        schdata = schdata.concat(JSON.parse(data3));
+                                        //console.log('length after 3=' + schdata.length);
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									}, //pathname1&3 success end
+									error: function () {
+										// 1 success, but 2 and 3 fail. So, just display.
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									}
+                                }); // pathname1&3 ajax end
+
+							}
+						}); // pathname2 ajax end
+					}, // pathname1 success end
+					error: function () {
+						// 1 failed, but try 2 and 3
+                        $.ajax({
+                            url: pathname2,
+                            type: 'GET',
+                            success: function (data2) {
+                                schdata = JSON.parse(data2);
+                                //console.log('length after 2=' + schdata.length)
+                                $.ajax({
+                                    url: pathname3,
+                                    type: 'GET',
+                                    success: function (data3) {
+                                        schdata = schdata.concat(JSON.parse(data3));
+                                        //console.log('length after 3=' + schdata.length);
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+                                    } //pathname1&2&3 success end
+                                }); // pathname1&2&3 ajax end
+                            },
+                            error: function () {
+                                // 1f2f
+                                $.ajax({
+                                    url: pathname3,
+                                    type: 'GET',
+                                    success: function (data3) {
+                                        schdata = schdata.concat(JSON.parse(data3));
+                                        //console.log('length after 3=' + schdata.length);
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									}, //pathname!1&!2&3 success end
+									error: function () {
+										// 1f2f3f but still run display to blank it out.
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									}
+                                }); // pathname!1&!2&3 ajax end
+                            }
+                        }); // pathname2 ajax end
+
+					}
 					
-					showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
-				}); // pathname1 get end - todo - check what happens if one of these is missing
+				}); // pathname1 ajax end
 			}
 			catch (err) {
-				console.log(err)
+				//console.log(err)
 				
 			}
 			
@@ -301,7 +371,7 @@
 		}
 
 
-		function showDateFiltRows(things, d1, d2) {
+        function showDateFiltRows(things, d1, d2) {
 			// select is for B, C, D, E, G, H, I, M
 			//var d1 = new Date("2023-02-11 23:59:59");
 			//var d2 = new Date("2023-02-12 23:59:59");
@@ -316,6 +386,7 @@
 			for (var i = 0; i < things.length; i++) {
 				var gmttimestr = things[i][1].substring(0,10)+'T'+things[i][1].substring(11,16)+':00.000Z';
 				var d = new Date(gmttimestr);
+				//console.log(d.toISOString())
 				
 				if (d > d1 && d < d2) {
 
@@ -465,12 +536,7 @@
 											or) <a href="javascript:todayFullSchedule()" style="color:#fff">Return to today's schedule</a>
 										</td>
 									</tr>
-									<tr></tr>
-									<tr>
-										<td height="38" colspan="3" align="right" class="homediv choosebg">
-											<input class="homediv choosebg blacktext" type="button" name="btnSubmit" value="Show Schedule" onClick="javascript:check()">
-										</td>
-									</tr>
+									
 									<tr>
 										<td height="38" colspan="3" align="center" class="homediv choosebg">
 											<a href="https://schedule.sssmediacentre.org/program/SW1.php" style="color:#fff">Click here to search for earlier programmes...</a>
