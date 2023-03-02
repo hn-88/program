@@ -216,7 +216,7 @@
                                     url: pathname3,
                                     type: 'GET',
                                     success: function (data3) {
-                                        schdata = schdata.concat(JSON.parse(data3));
+                                        schdata = JSON.parse(data3);
                                         //console.log('length after 3=' + schdata.length);
                                         showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									}, //pathname!1&!2&3 success end
