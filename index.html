@@ -14,6 +14,8 @@
 		var strDateSelected;
 		var tzoffsetmilli = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
 		//console.log('tzoneoffsetmilli as initialized = '+tzoffsetmilli)
+		var timeZoneStr = Intl.DateTimeFormat().resolvedOptions().timeZone;
+		var strStreamNameSelected;        
 		
 		function datesdropdownupdate() {
 			// get currentlocaldatetime, and get dates 30 days before that.
@@ -21,11 +23,6 @@
 			// check for files with newer dates. If available, add those also.
 			var currentdatetime = new Date();
 			var currentdatetimemillisec = currentdatetime.getTime();
-			var clientdatetime = currentdatetime.toISOString()
-			//console.log('ISO string is '+clientdatetime)
-            var clientdatetime = currentdatetime.getHours() + ' and UTC hrs is ' + currentdatetime.getUTCHours();
-			var exampletimestamp = "2023-02-12T02:10:18.000Z";
-			//console.log ('Exampletimestamp is '+ new Date(exampletimestamp).toISOString() );
 			var selecDay = document.getElementById("dateselector");
             selecDay.options.length = 0;
             
@@ -59,7 +56,7 @@
 		}
 		
 		function adddatetodropdown(odate) {
-			console.log('adddatetodropdown called.');
+			//console.log('adddatetodropdown called.');
 			var selecDay = document.getElementById("dateselector");
 			var option = document.createElement("option");
 			option.value = odate.toISOString().substring(0, 10);
@@ -71,7 +68,7 @@
 			var odate = new Date(dtimems);
 			var ostring = odate.toISOString().substring(0, 10);
 			var urlToCheck = "./data/1-" + ostring + ".txt";
-			console.log('urlToCheck='+urlToCheck);
+			//console.log('urlToCheck='+urlToCheck);
 			// https://stackoverflow.com/questions/3646914/how-do-i-check-if-file-exists-in-jquery-or-pure-javascript
 			$.ajax({
 					url:urlToCheck,
@@ -81,7 +78,7 @@
 						//1-file does not exist
 						// check for another stream file
 						urlToCheck = "./data/5-" + ostring + ".txt";
-						console.log('Checking '+urlToCheck)
+						//console.log('Checking '+urlToCheck)
 						$.ajax({
 								url:urlToCheck,
 								type:'HEAD',
@@ -90,7 +87,7 @@
 									//5-file does not exist
 									// check for another stream file
 									urlToCheck = "./data/6-" + ostring + ".txt";
-									console.log('Checking '+urlToCheck)
+									//console.log('Checking '+urlToCheck)
 									$.ajax({
 											url:urlToCheck,
 											type:'HEAD',
@@ -102,7 +99,7 @@
 											success: function()
 											{
 												//6-file exists
-												console.log('6exists')
+												//console.log('6exists')
 												adddatetodropdown(odate);
 											}
 										});
@@ -110,7 +107,7 @@
 								success: function()
 								{
 									//5-file exists
-									console.log('5exists')
+									//console.log('5exists')
 									adddatetodropdown(odate);
 								}
 							});
@@ -121,7 +118,7 @@
 					success: function()
 					{
 						//1-file exists
-						console.log('1exists')
+						//console.log('1exists')
 						adddatetodropdown(odate);
 					}
 				});
@@ -135,9 +132,10 @@
 			strDateSelected = document.getElementById('dateselector').selectedOptions[0].value;
 			//console.log("selecteddate is " + strDateSelected);
 			strStreamIdSelected = document.getElementById('strIdselector').selectedOptions[0].value;
+            strStreamNameSelected = document.getElementById('strIdselector').selectedOptions[0].text;
 			
 			var selDatems = new Date(strDateSelected + " 09:09:09").getTime();
-			console.log("selectedDatems converted back to ISO=" + new Date(selDatems).toISOString()); 
+			//console.log("selectedDatems converted back to ISO=" + new Date(selDatems).toISOString()); 
 			var nextDate = new Date(selDatems + 24 * 60 * 60 * 1000);
 			var prevDate = new Date(selDatems - 24 * 60 * 60 * 1000);
 			
@@ -145,7 +143,7 @@
 			var strNextDate = nextDate.toISOString().substring(0, 10);
 			var dtimePrevMidnight = new Date(strPrevDate + " 23:59:59");
 			var dtimeSelectedMidnight = new Date(strDateSelected + " 23:59:59");
-			console.log(dtimePrevMidnight.toISOString() + ' to ' + dtimeSelectedMidnight.toISOString());
+			//console.log(dtimePrevMidnight.toISOString() + ' to ' + dtimeSelectedMidnight.toISOString());
 			
 			var pathname1 = "./data/" + strStreamIdSelected + "-" + strPrevDate + ".txt";
 			var pathname2 = "./data/" + strStreamIdSelected + "-" + strDateSelected + ".txt";
@@ -156,19 +154,19 @@
                     type: 'GET',
 					success: function (data) {
 						schdata = JSON.parse(data); // can be a global variable too...
-						console.log('length after 1=' + schdata.length)
+						//console.log('length after 1=' + schdata.length)
                         $.ajax({
                             url: pathname2,
                             type: 'GET',
 							success: function (data2) {
 								schdata = schdata.concat(JSON.parse(data2));
-								console.log('length after 2=' + schdata.length)
+								//console.log('length after 2=' + schdata.length)
 								$.ajax({
 									url: pathname3,
 									type: 'GET',
 									success: function (data3) {
 										schdata = schdata.concat(JSON.parse(data3));
-										console.log('length after 3=' + schdata.length);
+										//console.log('length after 3=' + schdata.length);
 										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									} //pathname1&2&3 success end
 								}); // pathname1&2&3 ajax end
@@ -252,11 +250,10 @@
 		}
 
 		function todayFullSchedule() {
-			//~ document.forms[0].dchange.value = 0;
-			//~ document.forms[0].action = "/program/Index_new.php";
-			//~ document.forms[0].target = "";
-			//~ document.forms[0].todays.value = "1";
-			//~ document.forms[0].submit();
+            var tdate = new Date();
+            var selecDay = document.getElementById("dateselector");
+			selecDay.value = tdate.toISOString().substring(0, 10);
+            loadselecteddatedata()
 		}
 
 		function checkall() {
@@ -380,6 +377,13 @@
 			var mytbl = document.getElementById("sch");
 			mytbl.getElementsByTagName("tbody")[0].innerHTML = mytbl.rows[0].innerHTML;
 			// clear all rows except the header row, rows[0]
+
+			// display the schedule stream, date, timezone in
+			// top div and title
+			document.getElementById("displayinfo").innerHTML = strStreamNameSelected + ' - ' +
+				strDateSelected + ' - in timezone ' + timeZoneStr;
+            document.title = 'Schedule for ' + strStreamNameSelected + ' - ' +
+                strDateSelected + ' - in timezone ' + timeZoneStr;
 			var serialnum = 1;
 			var dlcounter = 0;
 
@@ -483,7 +487,7 @@
 							</a>
 						</td>
 						<td width="50%" class="homediv rdiv">
-							&nbsp;
+							<div style="color:white;" id="displayinfo">PrasanthiStream - 2023-03-03 - Asia/Kolkata </div>
 						</td>
 					</tr>
 				</tbody>
@@ -558,6 +562,8 @@
 					<td height="36" class="homediv choosebg">
 						<input type="hidden" name="allfids">
 						<input class="homediv choosebg blacktext" type="button" name="btnPlay" value="Listen" onClick="javascript:playnow()">
+
+						
 
 					</td>
 				</tr>
