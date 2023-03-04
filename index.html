@@ -422,6 +422,17 @@
 						`+ things[i][3];
 					if (things[i][6] == '1') {
 						htmlstring += `<font color='#800080'> - <strong>NEW!</strong></font>`
+					} else {
+						try {
+							if (things[i][7].substring(0, 2) == '20') {
+								// if the firstplayeddate is not NULL and not blank
+								htmlstring += ' - first broadcast on ' + things[i][7];
+							}
+						}
+						catch (err) {
+							// do nothing
+							//console.log(err);
+						}
 					}
 					htmlstring += `<div class="onlymobile">
 							&nbsp; &nbsp; `;
