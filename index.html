@@ -168,7 +168,11 @@
 										schdata = schdata.concat(JSON.parse(data3));
 										//console.log('length after 3=' + schdata.length);
 										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
-									} //pathname1&2&3 success end
+									}, //pathname1&2&3 success end
+									error: function () {
+										//1&2success, 3f
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									}
 								}); // pathname1&2&3 ajax end
 							},
 							error: function () {
