@@ -255,17 +255,6 @@
 			loadselecteddatedata()
 		}
 
-		function checkall() {
-			var val = false;
-			if (document.forms[0].checkallcb.checked)
-				val = true;
-			if (document.forms[0].chosencb[0])
-				for (i = 0; i < document.forms[0].chosencb.length; i++)
-					document.forms[0].chosencb[i].checked = val;
-			else if (document.forms[0].chosencb)
-				document.forms[0].chosencb.checked = val;
-		}
-
 		function dnload(dcounter) {
 			//var str = "";
 			//if (document.forms[0].dfids) {
@@ -609,11 +598,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<span class="close">&times;</span>
-				<h2>Search in SSSMC to download or listen</h2>
+				<h2>Search to download or listen</h2>
 			</div>
 			<div class="modal-body" id="myModalbody">
-				<p>Some text in the Modal Body</p>
-				<p>Some other text...</p>
+				<p>Modal text</p>				
 			</div>
 			<div class="modal-footer">
 				<h3>&nbsp;</h3>
