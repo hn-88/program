@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 	<link href="css/style_new.css" type="text/css" rel="stylesheet">
 	<link href="css/style_notable.css" type="text/css" rel="stylesheet">
+	<link href="css/style_modal.css" type="text/css" rel="stylesheet">
 	<title>RadioSai Schedule</title>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 	</script>
@@ -15,8 +16,8 @@
 		var tzoffsetmilli = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
 		//console.log('tzoneoffsetmilli as initialized = '+tzoffsetmilli)
 		var timeZoneStr = Intl.DateTimeFormat().resolvedOptions().timeZone;
-		var strStreamNameSelected;        
-		
+		var strStreamNameSelected;
+
 		function datesdropdownupdate() {
 			// get currentlocaldatetime, and get dates 30 days before that.
 			// select currentlocaldate
@@ -24,46 +25,46 @@
 			var currentdatetime = new Date();
 			var currentdatetimemillisec = currentdatetime.getTime();
 			var selecDay = document.getElementById("dateselector");
-            selecDay.options.length = 0;
-            
-			
-			var optiondatemillisec = currentdatetimemillisec - 30 * 24 * 60 * 60 * 1000; 
+			selecDay.options.length = 0;
+
+
+			var optiondatemillisec = currentdatetimemillisec - 30 * 24 * 60 * 60 * 1000;
 			// 30 days before currentdatetime
-            
+
 			while (optiondatemillisec < currentdatetimemillisec) {
 				var option = document.createElement("option");
 				var optiondate = new Date(optiondatemillisec);
 				option.value = optiondate.toISOString().substring(0, 10);
-                option.text = optiondate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+				option.text = optiondate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
 				selecDay.add(option);
 				optiondatemillisec += 24 * 60 * 60 * 1000;
 			}
 			// now add today's date and make it the selected option
-            var option = document.createElement("option");
+			var option = document.createElement("option");
 			var optiondate = new Date(currentdatetimemillisec);
-            option.value = optiondate.toISOString().substring(0, 10);
-            option.text = optiondate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+			option.value = optiondate.toISOString().substring(0, 10);
+			option.text = optiondate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
 			selecDay.add(option);
 			selecDay.value = optiondate.toISOString().substring(0, 10);
 			// now add all those dates for which schedule data files are available
 			// currently doing for 5 days in future
-			var dateplus5ms = new Date(currentdatetimemillisec+ 5 * 24 * 60 * 60 * 1000);
-			var dtimems = currentdatetimemillisec+ 24 * 60 * 60 * 1000 ;
+			var dateplus5ms = new Date(currentdatetimemillisec + 5 * 24 * 60 * 60 * 1000);
+			var dtimems = currentdatetimemillisec + 24 * 60 * 60 * 1000;
 			while (dtimems < dateplus5ms) {
 				addifscheduledataavailable(dtimems);
-				dtimems += 24 * 60 * 60 * 1000 ;
+				dtimems += 24 * 60 * 60 * 1000;
 			}
 		}
-		
+
 		function adddatetodropdown(odate) {
 			//console.log('adddatetodropdown called.');
 			var selecDay = document.getElementById("dateselector");
 			var option = document.createElement("option");
 			option.value = odate.toISOString().substring(0, 10);
-            option.text = odate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
+			option.text = odate.toLocaleString('en-us', { day: 'numeric', month: 'short', year: 'numeric' })
 			selecDay.add(option);
 		}
-		
+
 		function addifscheduledataavailable(dtimems) {
 			var odate = new Date(dtimems);
 			var ostring = odate.toISOString().substring(0, 10);
@@ -71,58 +72,52 @@
 			//console.log('urlToCheck='+urlToCheck);
 			// https://stackoverflow.com/questions/3646914/how-do-i-check-if-file-exists-in-jquery-or-pure-javascript
 			$.ajax({
-					url:urlToCheck,
-					type:'HEAD',
-					error: function()
-					{
-						//1-file does not exist
-						// check for another stream file
-						urlToCheck = "./data/5-" + ostring + ".txt";
-						//console.log('Checking '+urlToCheck)
-						$.ajax({
-								url:urlToCheck,
-								type:'HEAD',
-								error: function()
-								{
-									//5-file does not exist
-									// check for another stream file
-									urlToCheck = "./data/6-" + ostring + ".txt";
-									//console.log('Checking '+urlToCheck)
-									$.ajax({
-											url:urlToCheck,
-											type:'HEAD',
-											error: function()
-											{
-												//6-file does not exist
-												// so do not call adddate function
-											},
-											success: function()
-											{
-												//6-file exists
-												//console.log('6exists')
-												adddatetodropdown(odate);
-											}
-										});
+				url: urlToCheck,
+				type: 'HEAD',
+				error: function () {
+					//1-file does not exist
+					// check for another stream file
+					urlToCheck = "./data/5-" + ostring + ".txt";
+					//console.log('Checking '+urlToCheck)
+					$.ajax({
+						url: urlToCheck,
+						type: 'HEAD',
+						error: function () {
+							//5-file does not exist
+							// check for another stream file
+							urlToCheck = "./data/6-" + ostring + ".txt";
+							//console.log('Checking '+urlToCheck)
+							$.ajax({
+								url: urlToCheck,
+								type: 'HEAD',
+								error: function () {
+									//6-file does not exist
+									// so do not call adddate function
 								},
-								success: function()
-								{
-									//5-file exists
-									//console.log('5exists')
+								success: function () {
+									//6-file exists
+									//console.log('6exists')
 									adddatetodropdown(odate);
 								}
 							});
-						
-						
-						
-					},
-					success: function()
-					{
-						//1-file exists
-						//console.log('1exists')
-						adddatetodropdown(odate);
-					}
-				});
-			
+						},
+						success: function () {
+							//5-file exists
+							//console.log('5exists')
+							adddatetodropdown(odate);
+						}
+					});
+
+
+
+				},
+				success: function () {
+					//1-file exists
+					//console.log('1exists')
+					adddatetodropdown(odate);
+				}
+			});
+
 		}
 
 		function loadselecteddatedata() {
@@ -132,32 +127,32 @@
 			strDateSelected = document.getElementById('dateselector').selectedOptions[0].value;
 			//console.log("selecteddate is " + strDateSelected);
 			strStreamIdSelected = document.getElementById('strIdselector').selectedOptions[0].value;
-            strStreamNameSelected = document.getElementById('strIdselector').selectedOptions[0].text;
-			
+			strStreamNameSelected = document.getElementById('strIdselector').selectedOptions[0].text;
+
 			var selDatems = new Date(strDateSelected + " 09:09:09").getTime();
-			//console.log("selectedDatems converted back to ISO=" + new Date(selDatems).toISOString()); 
+			//console.log("selectedDatems converted back to ISO=" + new Date(selDatems).toISOString());
 			var nextDate = new Date(selDatems + 24 * 60 * 60 * 1000);
 			var prevDate = new Date(selDatems - 24 * 60 * 60 * 1000);
-			
+
 			var strPrevDate = prevDate.toISOString().substring(0, 10);
 			var strNextDate = nextDate.toISOString().substring(0, 10);
 			var dtimePrevMidnight = new Date(strPrevDate + " 23:59:59");
 			var dtimeSelectedMidnight = new Date(strDateSelected + " 23:59:59");
 			//console.log(dtimePrevMidnight.toISOString() + ' to ' + dtimeSelectedMidnight.toISOString());
-			
+
 			var pathname1 = "./data/" + strStreamIdSelected + "-" + strPrevDate + ".txt";
 			var pathname2 = "./data/" + strStreamIdSelected + "-" + strDateSelected + ".txt";
 			var pathname3 = "./data/" + strStreamIdSelected + "-" + strNextDate + ".txt";
 			try {
-                $.ajax({
-                    url: pathname1,
-                    type: 'GET',
+				$.ajax({
+					url: pathname1,
+					type: 'GET',
 					success: function (data) {
 						schdata = JSON.parse(data); // can be a global variable too...
 						//console.log('length after 1=' + schdata.length)
-                        $.ajax({
-                            url: pathname2,
-                            type: 'GET',
+						$.ajax({
+							url: pathname2,
+							type: 'GET',
 							success: function (data2) {
 								schdata = schdata.concat(JSON.parse(data2));
 								//console.log('length after 2=' + schdata.length)
@@ -171,74 +166,74 @@
 									}, //pathname1&2&3 success end
 									error: function () {
 										//1&2success, 3f
-                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									}
 								}); // pathname1&2&3 ajax end
 							},
 							error: function () {
 								// 1s2f, but try 3
-                                $.ajax({
-                                    url: pathname3,
-                                    type: 'GET',
-                                    success: function (data3) {
-                                        schdata = schdata.concat(JSON.parse(data3));
-                                        //console.log('length after 3=' + schdata.length);
-                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+								$.ajax({
+									url: pathname3,
+									type: 'GET',
+									success: function (data3) {
+										schdata = schdata.concat(JSON.parse(data3));
+										//console.log('length after 3=' + schdata.length);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									}, //pathname1&3 success end
 									error: function () {
 										// 1 success, but 2 and 3 fail. So, just display.
-                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									}
-                                }); // pathname1&3 ajax end
+								}); // pathname1&3 ajax end
 
 							}
 						}); // pathname2 ajax end
 					}, // pathname1 success end
 					error: function () {
 						// 1 failed, but try 2 and 3
-                        $.ajax({
-                            url: pathname2,
-                            type: 'GET',
-                            success: function (data2) {
-                                schdata = JSON.parse(data2);
-                                //console.log('length after 2=' + schdata.length)
-                                $.ajax({
-                                    url: pathname3,
-                                    type: 'GET',
-                                    success: function (data3) {
-                                        schdata = schdata.concat(JSON.parse(data3));
-                                        //console.log('length after 3=' + schdata.length);
-                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
-                                    } //pathname1&2&3 success end
-                                }); // pathname1&2&3 ajax end
-                            },
-                            error: function () {
-                                // 1f2f
-                                $.ajax({
-                                    url: pathname3,
-                                    type: 'GET',
-                                    success: function (data3) {
-                                        schdata = JSON.parse(data3);
-                                        //console.log('length after 3=' + schdata.length);
-                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+						$.ajax({
+							url: pathname2,
+							type: 'GET',
+							success: function (data2) {
+								schdata = JSON.parse(data2);
+								//console.log('length after 2=' + schdata.length)
+								$.ajax({
+									url: pathname3,
+									type: 'GET',
+									success: function (data3) {
+										schdata = schdata.concat(JSON.parse(data3));
+										//console.log('length after 3=' + schdata.length);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+									} //pathname1&2&3 success end
+								}); // pathname1&2&3 ajax end
+							},
+							error: function () {
+								// 1f2f
+								$.ajax({
+									url: pathname3,
+									type: 'GET',
+									success: function (data3) {
+										schdata = JSON.parse(data3);
+										//console.log('length after 3=' + schdata.length);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									}, //pathname!1&!2&3 success end
 									error: function () {
 										// 1f2f3f but still run display to blank it out.
-                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
 									}
-                                }); // pathname!1&!2&3 ajax end
-                            }
-                        }); // pathname2 ajax end
+								}); // pathname!1&!2&3 ajax end
+							}
+						}); // pathname2 ajax end
 
 					}
-					
+
 				}); // pathname1 ajax end
 			}
 			catch (err) {
 				//console.log(err)
-				
+
 			}
-			
+
 		}
 
 		function dcheck() {
@@ -254,10 +249,10 @@
 		}
 
 		function todayFullSchedule() {
-            var tdate = new Date();
-            var selecDay = document.getElementById("dateselector");
+			var tdate = new Date();
+			var selecDay = document.getElementById("dateselector");
 			selecDay.value = tdate.toISOString().substring(0, 10);
-            loadselecteddatedata()
+			loadselecteddatedata()
 		}
 
 		function checkall() {
@@ -272,72 +267,49 @@
 		}
 
 		function dnload(dcounter) {
-			var str = "";
-			if (document.forms[0].dfids) {
-				if (document.forms[0].dfids[dcounter])
-					str = document.forms[0].dfids[dcounter].value;
-				else if (document.forms[0].dfids)
-					str = document.forms[0].dfids.value;
-			}
-			document.forms[0].allfids.value = str;
-			document.forms[0].action = "https://schedule.sssmediacentre.org/program/Download.php";
-			document.forms[0].target = "_blank";
-			document.forms[0].submit();
+			//var str = "";
+			//if (document.forms[0].dfids) {
+			//	if (document.forms[0].dfids[dcounter])
+			//		str = document.forms[0].dfids[dcounter].value;
+			//	else if (document.forms[0].dfids)
+			//		str = document.forms[0].dfids.value;
+			//}
+			//document.forms[0].allfids.value = str;
+			//document.forms[0].action = "https://schedule.sssmediacentre.org/program/Download.php";
+			//document.forms[0].target = "_blank";
+			//document.forms[0].submit();
+            var modal = document.getElementById("myModal");
+			modal.style.display = "block";
+			var modalbody = document.getElementById("myModalbody");
+			modalbody.innerHTML = `<p><a href="https://www.sssmediacentre.org/#/global-search-page/search/dd%202001%2011%2023" target=_blank>DD 2001 11 23</a></p>
+                <p> <a href="https://www.sssmediacentre.org/#/global-search-page/search/dd%202002%2011%2023" target=_blank>DD 2002 11 23</a></p > `;
 		}
 
-		function playnow() {
-			var str = "";
-			if (!document.forms[0].chosencb) {
-				alert("There are no programmes to play");
-				return;
-			}
-			if (document.forms[0].chosencb[1]) {
-				for (i = 0; i < document.forms[0].chosencb.length; i++) {
-					if (document.forms[0].chosencb[i].checked) {
-						if (str != "")
-							str += ",";
-						str += document.forms[0].fids[i].value;
-					}
-				}
-			}
-			else if (document.forms[0].chosencb) {
-				if (document.forms[0].chosencb.checked)
-					str = document.forms[0].fids.value;
-			}
-			if (str == "") {
-				alert("Kindly choose some programmes to play")
-				return;
-			}
-			document.forms[0].allfids.value = str;
-			document.forms[0].action = "https://schedule.sssmediacentre.org/program/Play.php";
-			document.forms[0].target = "_blank";
-			document.forms[0].submit();
-		}
-
+		
 		function formatGMTtime(timestring) {
 			var hours = parseInt(timestring.substring(11, 13));
-            		var mins = parseInt(timestring.substring(14, 16));
+			var mins = parseInt(timestring.substring(14, 16));
 			var ampm = ' AM';
 
-		    if (mins >= 55) { mins = 0; hours = hours + 1; }
-		    else {
-			mins = mins + 5 - (mins % 5);
-			if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
-			    mins -= 5;
-				}
+			if (mins >= 55) { mins = 0; hours = hours + 1; }
+			else {
+				mins = mins + 5 - (mins % 5);
+				if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
+					mins -= 5;
+			}
 
-		    if (hours > 12) {
-			ampm = ' PM';
-			hours = hours - 12;
-		    } else if (hours == 12) {
-			ampm = ' PM';
-				}
+			if (hours > 12) {
+				ampm = ' PM';
+				hours = hours - 12;
+			} else if (hours == 12) {
+				ampm = ' PM';
+			}
 
-            	  return hours + ':' + ("0" + mins).slice(-2) + ampm;
+			return hours + ':' + ("0" + mins).slice(-2) + ampm;
 		}
-		
+
 		function formatLocaltime(timestring) {
-			var gtimestring = timestring.substring(0,10)+'T'+timestring.substring(11,16)+':00.000Z';
+			var gtimestring = timestring.substring(0, 10) + 'T' + timestring.substring(11, 16) + ':00.000Z';
 			// this converts this to ISOString format
 			//console.log('formatLocaltime - gtimestring is ' + gtimestring)
 			var gDateTime = new Date(gtimestring);
@@ -345,34 +317,34 @@
 			//console.log(tzoffsetmilli)
 			// tzoffsetmilli for India = -19800000
 			// note the minus sign!
-			
+
 			var ltimestring = (new Date(gDateTime.getTime() - tzoffsetmilli)).toISOString();
 			//var ltimestring = timestring;
 			//console.log(ltimestring)
-			
+
 			var hours = parseInt(ltimestring.substring(11, 13));
-            var mins = parseInt(ltimestring.substring(14, 16));
+			var mins = parseInt(ltimestring.substring(14, 16));
 			var ampm = ' AM';
-			
-		    if (mins >= 55) { mins = 0; hours = hours + 1; }
-		    else {
-			mins = mins + 5 - (mins % 5);
-			if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
-			    mins -= 5;
-				}
 
-		    if (hours > 12) {
-			ampm = ' PM';
-			hours = hours - 12;
-		    } else if (hours == 12) {
-			ampm = ' PM';
-				}
+			if (mins >= 55) { mins = 0; hours = hours + 1; }
+			else {
+				mins = mins + 5 - (mins % 5);
+				if (mins == 5 || mins == 25 || mins == 35 || mins == 55)
+					mins -= 5;
+			}
 
-		    return hours + ':' + ("0" + mins).slice(-2) + ampm;
+			if (hours > 12) {
+				ampm = ' PM';
+				hours = hours - 12;
+			} else if (hours == 12) {
+				ampm = ' PM';
+			}
+
+			return hours + ':' + ("0" + mins).slice(-2) + ampm;
 		}
 
 
-        function showDateFiltRows(things, d1, d2) {
+		function showDateFiltRows(things, d1, d2) {
 			// select is for B, C, D, E, G, H, I, M
 			//var d1 = new Date("2023-02-11 23:59:59");
 			//var d2 = new Date("2023-02-12 23:59:59");
@@ -386,44 +358,36 @@
 			// top div and title
 			document.getElementById("displayinfo").innerHTML = strStreamNameSelected + ' - ' +
 				strDateSelected + ' - in timezone ' + timeZoneStr;
-            document.title = 'Schedule for ' + strStreamNameSelected + ' - ' +
+			document.title = 'Schedule for ' + strStreamNameSelected + ' - ' +
 				strDateSelected + ' - in timezone ' + timeZoneStr;
 
 			var serialnum = 1;
 			var dlcounter = 0;
 
 			for (var i = 0; i < things.length; i++) {
-				var gmttimestr = things[i][1].substring(0,10)+'T'+things[i][1].substring(11,16)+':00.000Z';
+				var gmttimestr = things[i][1].substring(0, 10) + 'T' + things[i][1].substring(11, 16) + ':00.000Z';
 				var d = new Date(gmttimestr);
 				//console.log(d.toISOString())
-				
+
 				if (d > d1 && d < d2) {
 
 					var htmlstring = `<tr >
-<td align="center" valign="top">`;
-					if (things[i][0] != '') {
-						htmlstring += `<input type="checkbox" name="chosencb">
-						<input type="hidden" name="fids" value="`
-							+ things[i][0] + `">`;
-					}
-					htmlstring += `
-					</td>
 
-					<td align="center" valign="top">
-						`+ serialnum + `
-					</td>
+						<td align="center" valign="top">
+							`+ serialnum + `
+						</td>
 
-					<td align="center" valign="top">
-						`+ formatLocaltime(things[i][1]) + `
-					</td>
+						<td align="center" valign="top">
+							`+ formatLocaltime(things[i][1]) + `
+						</td>
 
-					<td align="center" valign="top">
-						`+ formatGMTtime(things[i][1]) + `
-					</td>
+						<td align="center" valign="top">
+							`+ formatGMTtime(things[i][1]) + `
+						</td>
 
-					<td>
-						<div class="redbold">`+ things[i][2] + `</div>
-						`+ things[i][3];
+						<td>
+							<div class="redbold">`+ things[i][2] + `</div>
+							`+ things[i][3];
 					if (things[i][6] == '1') {
 						htmlstring += `<font color='#800080'> - <strong>NEW!</strong></font>`
 					} else {
@@ -439,44 +403,44 @@
 						}
 					}
 					htmlstring += `<div class="onlymobile">
-							&nbsp; &nbsp; `;
+								&nbsp; &nbsp; `;
 					if (things[i][5] != '') {
-						htmlstring += `<input type = "hidden" 
-                                     name = "dfids" value = "` + things[i][5] + `" >
-                            <a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
-                                onMouseOver="window.status='';return true;">
-                                <img src="img/dl.png" alt="Download" border="0"
-                                    onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
-                            </a> `;
+						htmlstring += `<input type = "hidden"
+										 name = "dfids" value = "` + things[i][5] + `" >
+								<a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
+									onMouseOver="window.status='';return true;">
+									<img src="img/dl.png" alt="Download" border="0"
+										onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
+								</a> `;
 					}
-							
+
 					htmlstring += `</div><br><br>
-					</td>
+						</td>
 
-					<td align="center" valign="top">
-						`+ things[i][4] + `
-					</td>
+						<td align="center" valign="top">
+							`+ things[i][4] + `
+						</td>
 
-					<td align="center" valign="top">`;
+						<td align="center" valign="top">`;
 					if (things[i][5] != '') {
 						htmlstring += `
-						<input type="hidden" name="dfids" value="`+ things[i][5] + `">
-						<a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
-						   onMouseOver="window.status='';return true;">
-							<img src="img/dl.png" alt="Download" border="0"
-								 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
-						</a>`;
+							<input type="hidden" name="dfids" value="`+ things[i][5] + `">
+							<a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
+							   onMouseOver="window.status='';return true;">
+								<img src="img/dl.png" alt="Download" border="0"
+									 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
+							</a>`;
 					}
 
-					htmlstring +=`
-					</td>
-				</tr>
-				`;
-					
-                    maintable.append(htmlstring);
-					
+					htmlstring += `
+						</td>
+					</tr>
+					`;
+
+					maintable.append(htmlstring);
+
 					serialnum++;
-										
+
 				}
 
 			}
@@ -487,10 +451,10 @@
 			// this runs on page load
 			datesdropdownupdate();
 			loadselecteddatedata();
-            
+
 		});
 
-        
+
 
 	</script>
 </head>
@@ -538,9 +502,9 @@
 											</select>
 										</td>
 									</tr>
-									
-									
-									
+
+
+
 									<tr>
 										<td height="41" class="homediv choosebg">Choose Date:</td>
 										<td bgcolor="#344655">
@@ -548,7 +512,7 @@
 												<option value=" ">
 													-
 												</option>
-												
+
 											</select>
 											<input type="hidden" name="dchange" value="0">
 										</td>
@@ -558,7 +522,7 @@
 											or) <a href="javascript:todayFullSchedule()" style="color:#fff">Return to today's schedule</a>
 										</td>
 									</tr>
-									
+
 									<tr>
 										<td height="38" colspan="3" align="center" class="homediv choosebg">
 											<a href="https://schedule.sssmediacentre.org/program/SW1.php" style="color:#fff">Click here to search for earlier programmes...</a>
@@ -573,61 +537,49 @@
 
 				<tr>
 					<td height="36" class="homediv choosebg">
-						In order to listen to a particular programme at a time of your convenience, click on the check-box to the <strong>LEFT</strong> of the programme in the table below and click on the "Listen" button at the top of the table. <br><br>To download a programme to your hard-disk, choose the download link &nbsp;<img src="img/dl.png">&nbsp; on the <strong>RIGHT</strong> of the programme in the table below.<br><br>&nbsp;
+						To download or listen to a program, choose the search link &nbsp;<img src="img/dl.png">&nbsp; on the <strong>RIGHT</strong> of the program in the table below, to search for the respective content in sssmediacentre.org.<br><br>&nbsp;
 
 					</td>
 				</tr>
 
-				<tr>
-					<td height="36" class="homediv choosebg">
-						<input type="hidden" name="allfids">
-						<input class="homediv choosebg blacktext" type="button" name="btnPlay" value="Listen" onClick="javascript:playnow()">
-
-						
-
-					</td>
-				</tr>
+				
 			</table>
 
 
 			<!-------------------------------------------------------------------------------------------------------------------------------------->
 			<table id="sch" width="100%" border="0" cellspacing="1" cellpadding="12">
-			<tbody>
-				<tr>
+				<tbody>
+					<tr>
 
-					<th width="10%">
-						Listen<br>
-						<input type="checkbox" name="checkallcb" onClick="javascript:checkall()">
-					</th>
 
-					<th width="7%">
-						SL. No.
-					</th>
+						<th width="7%">
+							SL. No.
+						</th>
 
-					<th width="11%">
-						Time
-						<br><small>(local)</small>
-					</th>
+						<th width="11%">
+							Time
+							<br><small>(local)</small>
+						</th>
 
-					<th width="10%">
-						Time <br> (GMT)
-					</th>
+						<th width="10%">
+							Time <br> (GMT)
+						</th>
 
-					<th>
-						Programme List
-					</th>
+						<th>
+							Description
+						</th>
 
-					<th width="4%">
-						Duration <br>(min)
-					</th>
+						<th width="4%">
+							Duration <br>(min)
+						</th>
 
-					<th width="11%">
-						Download
-					</th>
-				</tr>
+						<th width="11%">
+							Search<br /> to listen
+						</th>
+					</tr>
 
-				
-			</tbody>	
+
+				</tbody>
 			</table>
 		</form>
 		<!-------------------------------------------------------------------------------------------------------------------------------------->
@@ -644,12 +596,60 @@
 		<br><br><br><br><br>
 
 		<a class="twitter-timeline" href="https://twitter.com/sghradiosai" data-widget-id="347202777698672642" data-chrome="noheader" width="300" height="900">Tweets by @sghradiosai</a>
-		
+
 
 	</div>
 
 	<!-- InstanceEnd -->
-	
+	<!-- Based on the example from w3schools -->
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">&times;</span>
+				<h2>Search in SSSMC to download or listen</h2>
+			</div>
+			<div class="modal-body" id="myModalbody">
+				<p>Some text in the Modal Body</p>
+				<p>Some other text...</p>
+			</div>
+			<div class="modal-footer">
+				<h3>&nbsp;</h3>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		//var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal
+		//btn.onclick = function () {
+		//	modal.style.display = "block";
+		//}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
 
 </body>
 </html>
