@@ -45,14 +45,14 @@ color: #d74607;
 
 /* For mobile phones: */
 @media only screen and (max-width: 768px) {
-	  #sch td:nth-child(2), 
-	  #sch th:nth-child(2),
-	  #sch td:nth-child(4), 
-	  #sch th:nth-child(4),
+	  #sch td:nth-child(1), 
+	  #sch th:nth-child(1),
+	  #sch td:nth-child(3), 
+	  #sch th:nth-child(3),
+	  #sch td:nth-child(5), 
+	  #sch th:nth-child(5),
 	  #sch td:nth-child(6), 
-	  #sch th:nth-child(6),
-	  #sch td:nth-child(7), 
-	  #sch th:nth-child(7) {
+	  #sch th:nth-child(6) {
 		display:none;
 	  }
 	  
@@ -88,7 +88,7 @@ border-collapse: collapse;
 }
 
 .blacktext {
-background-color: white; /* blue */
+background-color: white; 
 color: black;
 }
 
