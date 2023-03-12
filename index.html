@@ -394,10 +394,8 @@
 					htmlstring += `<div class="onlymobile">
 								&nbsp; &nbsp; `;
 					if (things[i][5] != '') {
-						htmlstring += `<input type = "hidden"
-										 name = "dfids" value = "` + things[i][5] + `" >
-								<a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
-									onMouseOver="window.status='';return true;">
+						htmlstring += `<a href="`+things[i][5]+`" style="text-decoration:none"
+									target="_blank">
 									<img src="img/dl.png" alt="Download" border="0"
 										onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
 								</a> `;
@@ -412,13 +410,11 @@
 
 						<td align="center" valign="top">`;
 					if (things[i][5] != '') {
-						htmlstring += `
-							<input type="hidden" name="dfids" value="`+ things[i][5] + `">
-							<a href="javascript:dnload(`+ (dlcounter++) + `)" style="text-decoration:none"
-							   onMouseOver="window.status='';return true;">
-								<img src="img/dl.png" alt="Download" border="0"
-									 onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
-							</a>`;
+                        htmlstring += ` < a href = "`+things[i][5]+`" style = "text-decoration:none"
+                        target = "_blank" >
+                            <img src="img/dl.png" alt="Download" border="0"
+                                onMouseOver="this.src='img/dlon.png'" onMouseOut="this.src='img/dl.png'">
+                            </a> `;
 					}
 
 					htmlstring += `
@@ -563,7 +559,7 @@
 						</th>
 
 						<th width="11%">
-							Search<br /> to listen
+							Listen<br /> <small>or download</small>
 						</th>
 					</tr>
 
@@ -590,54 +586,6 @@
 	</div>
 
 	<!-- InstanceEnd -->
-	<!-- Based on the example from w3schools -->
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
-
-		<!-- Modal content -->
-		<div class="modal-content">
-			<div class="modal-header">
-				<span class="close">&times;</span>
-				<h2>Search to download or listen</h2>
-			</div>
-			<div class="modal-body" id="myModalbody">
-				<p>Modal text</p>				
-			</div>
-			<div class="modal-footer">
-				<h3>&nbsp;</h3>
-			</div>
-		</div>
-
-	</div>
-
-	<script>
-		// Get the modal
-		var modal = document.getElementById("myModal");
-
-		// Get the button that opens the modal
-		//var btn = document.getElementById("myBtn");
-
-		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-
-		// When the user clicks the button, open the modal
-		//btn.onclick = function () {
-		//	modal.style.display = "block";
-		//}
-
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function () {
-			modal.style.display = "none";
-		}
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
-
-
+	
 </body>
 </html>
