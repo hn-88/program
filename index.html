@@ -204,8 +204,12 @@
 										schdata = schdata.concat(JSON.parse(data3));
 										//console.log('length after 3=' + schdata.length);
 										showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
-									} //pathname1&2&3 success end
-								}); // pathname1&2&3 ajax end
+									}, //pathname2&3 success end
+									error: function () {
+                                        // 1 fail, but 2 success and 3 fail. So, just display.
+                                        showDateFiltRows(schdata, dtimePrevMidnight, dtimeSelectedMidnight);
+                                    }
+								}); // pathname1f&2&3 ajax end
 							},
 							error: function () {
 								// 1f2f
