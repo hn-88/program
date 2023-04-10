@@ -121,6 +121,8 @@
 		}
 
 		function loadselecteddatedata() {
+			// first clear display data if exists from earlier schedule
+			schdata = '';
 			// check if data file exists, and load
 			// selected date data + prev date data + next date data
 			// to allow for displaying midnight to midnight in local timezone
