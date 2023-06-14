@@ -138,8 +138,8 @@
 
 			var strPrevDate = prevDate.toISOString().substring(0, 10);
 			var strNextDate = nextDate.toISOString().substring(0, 10);
-			var dtimePrevMidnight = new Date(strPrevDate + " 23:59:59");
-			var dtimeSelectedMidnight = new Date(strDateSelected + " 23:59:59");
+			var dtimePrevMidnight = new Date(strPrevDate + "T23:59:59Z");
+			var dtimeSelectedMidnight = new Date(strDateSelected + "T23:59:59Z");
 			console.log(dtimePrevMidnight.toISOString() + ' to ' + dtimeSelectedMidnight.toISOString());
 
 			var pathname1 = "./data/" + strStreamIdSelected + "-" + strPrevDate + ".txt";
