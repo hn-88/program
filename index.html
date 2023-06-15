@@ -139,9 +139,9 @@
 			var strPrevDate = prevDate.toISOString().substring(0, 10);
 			var strNextDate = nextDate.toISOString().substring(0, 10);
 			var dtimePrevMidnightGMT = new Date(strPrevDate + "T23:59:59Z");
-			var dtimePrevMidnight = new Date(dtimePrevMidnightGMT.getTime() - tzoffsetmilli);
+			var dtimePrevMidnight = new Date(dtimePrevMidnightGMT.getTime() + tzoffsetmilli);
 			var dtimeSelectedMidnightGMT = new Date(strDateSelected + "T23:59:59Z");
-			var dtimeSelectedMidnight = new Date(dtimeSelectedMidnightGMT.getTime() - tzoffsetmilli);
+			var dtimeSelectedMidnight = new Date(dtimeSelectedMidnightGMT.getTime() + tzoffsetmilli);
 			console.log(dtimePrevMidnight.toISOString() + ' to ' + dtimeSelectedMidnight.toISOString());
 
 			var pathname1 = "./data/" + strStreamIdSelected + "-" + strPrevDate + ".txt";
